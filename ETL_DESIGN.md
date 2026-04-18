@@ -13,20 +13,7 @@ This design targets the real-time direction, with a batch layer on top for recon
 
 ## Architecture
 
-```
-                    ┌─ Streaming pipeline (always on) ───────────────────────┐
-ingestion sources ─►│ Kafka → meal_events → meals → meal_items →             │─► Alerts
-   (app, web,       │                       (cache lookup +                  │   Dashboards
-    voice, B2B)     │                        nutrition API)                  │
-                    │                                                        │
-                    │                  →  fct_daily_nutrition (live)         │
-                    └────────────────────────────────────────────────────────┘
-                              ▲
-                              │ rebuilds + reconciles from meal_events
-                    ┌─ Batch (Airflow) ──────────────────────────────────────┐
-                    │ end-of-day close · rollups · DQ · cost · backfills     │
-                    └────────────────────────────────────────────────────────┘
-```
+ETL architecture — streaming pipeline (always on) + scheduled Air Architecture flow batch layer, both reading and writing the same Iceberg tables
 
 A streaming consumer drives the live pipeline; an Airflow batch layer runs scheduled jobs against the same Iceberg tables for end-of-day finalization, rollups, data quality, and backfills. Either layer can recover the system on its own.
 

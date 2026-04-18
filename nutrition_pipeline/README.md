@@ -64,20 +64,27 @@ so any one of them is independently testable, swappable, or re-runnable.
 ## Design decisions
 
 ### Deterministic normalization instead of an NLP/LLM parser
-`meal_parser.normalize_meal_text` strips leading verbs and trailing
-meal-context phrases via regex. It's reproducible, free per call, and
-produces a stable cache key. An LLM parser would canonicalize more
+`meal_parser.normalize_meal_text` lowercases the input, strips leading
+verbs (`"Had a..."`, `"Ate..."`, `"Drank..."`) and trailing meal-context
+phrases (`"for lunch"`, `"in the morning"`, `"throughout the day"`),
+and removes punctuation — so semantically equivalent inputs collapse to
+the same query. It's reproducible, free per call, and produces a stable
+cache key. An LLM parser would canonicalize more
 aggressively (higher cache hit rate, fewer nutrition-API calls) but
 introduces its own per-call cost — the right trade-off depends on which
 API is more expensive in production. The module is structured so it can
 be swapped without touching callers.
 
-### Persistent cache of the raw API response
-`NutritionClient` caches the raw JSON response, not the parsed `MealItem`
-objects. If we add or rename fields later, we re-parse from the existing
-cache instead of paying the API again. Negative results (empty / failed
-responses) are cached too, so unparseable inputs like
-*"water throughout the day"* don't keep burning quota.
+### Treating the API as a metered resource
+The assignment notes the API isn't free, so the client is cache-first.
+`NutritionClient` keeps a persistent JSON cache keyed on the normalized
+query string, so two phrasings of the same meal share one call and
+re-runs of the pipeline issue zero calls for queries already seen. The
+cache stores the **raw** JSON response (not the parsed `MealItem`
+objects) so adding or renaming fields later doesn't require re-fetching.
+Negative results (empty / failed responses) are cached too, so
+unparseable inputs like *"water throughout the day"* don't keep burning
+quota.
 
 ### Graceful handling of paywalled / missing fields
 The free plan returns paywalled fields as strings
