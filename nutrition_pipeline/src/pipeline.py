@@ -1,21 +1,8 @@
-"""End-to-end orchestration: CSV → clean → enrich → aggregate → alerts.
+"""End-to-end orchestration: ingest -> clean -> enrich -> aggregate -> alerts.
 
-Each step is its own pure(-ish) function so it can be unit tested or swapped
-for an Airflow/Dagster task — or wrapped in a streaming consumer loop — in
-the productionized pipeline. The function boundaries deliberately mirror
-the named steps in ETL_DESIGN.md:
-
-    Step 1  Ingest             -> load_csv          (writes meal_events)
-    Step 2  Parse + clean      -> clean_meals       (writes meals)
-    Step 3  Enrich via API     -> enrich_meals      (writes meal_items,
-                                                     uses nutrition_cache)
-    Step 4  Aggregate + flag   -> aggregate_daily + check_alerts
-                                                    (writes
-                                                     analytics.fct_daily_nutrition)
-    Step 5  Emit alerts        -> print_alert_report
-                                                    (analytics.fct_alerts in prod)
-
-`run()` is the only entry point callers should need.
+Each step is a small pure function so it can be unit-tested or swapped for
+an Airflow task / streaming consumer in the production design. `run()` is
+the only entry point callers need.
 """
 
 from __future__ import annotations
@@ -30,13 +17,14 @@ import config
 
 from .alerts import check_alerts, print_alert_report
 from .meal_parser import normalize_meal_text
-from .models import DailySummary, EnrichedMeal, MealItem, RawMeal
+from .models import DailySummary, EnrichedMeal, RawMeal
 from .nutrition_client import NutritionClient
 
 logger = logging.getLogger(__name__)
 
 
 def load_csv(csv_path: Path) -> list[RawMeal]:
+    """Read the raw meal log into typed RawMeal records, skipping bad rows."""
     meals: list[RawMeal] = []
     with Path(csv_path).open("r", encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f)
@@ -59,12 +47,10 @@ def load_csv(csv_path: Path) -> list[RawMeal]:
 
 
 def clean_meals(raw_meals: list[RawMeal]) -> list[RawMeal]:
-    """Step 2 (Parse + clean): stamp `normalized_text` on every meal.
+    """Stamp `normalized_text` on every meal once, upstream of enrichment.
 
-    In the productionized ETL this is the job that writes the `meals`
-    table — doing it here means the normalized string, which is also the `nutrition_cache` key, 
-    is computed exactly once upstream and becomes a first-class column every
-    later step can read from.
+    The normalized string is the cache key used in the next step, so
+    computing it here guarantees every consumer sees the same value.
     """
     for rm in raw_meals:
         rm.normalized_text = normalize_meal_text(rm.raw_text)
@@ -73,12 +59,7 @@ def clean_meals(raw_meals: list[RawMeal]) -> list[RawMeal]:
 
 
 def enrich_meals(meals: list[RawMeal], client: NutritionClient) -> list[EnrichedMeal]:
-    """Step 3 (Enrich via API): look up nutrition facts for each cleaned meal.
-
-    Assumes `clean_meals` has already run, i.e. `meal.normalized_text` is
-    set. The client handles cache-first lookup against `nutrition_cache`
-    so this loop is cheap when queries repeat.
-    """
+    """Look up nutrition facts for each meal via the cache-first client."""
     enriched: list[EnrichedMeal] = []
     for rm in meals:
         items = client.get_nutrition(rm.normalized_text) if rm.normalized_text else []
@@ -92,14 +73,7 @@ def enrich_meals(meals: list[RawMeal], client: NutritionClient) -> list[Enriched
 
 
 def aggregate_daily(enriched_meals: list[EnrichedMeal]) -> list[DailySummary]:
-    """Step 4 (Aggregate + flag — aggregate part).
-
-    Buckets enriched meals by (person, date) and sums every nutrient
-    column. Maps to the `GROUP BY (user_id, meal_date)` that builds
-    `analytics.fct_daily_nutrition` in production. The "+ flag" half of
-    Step 4 lives in `alerts.check_alerts`, which sets the alert columns
-    on each summary.
-    """
+    """Sum nutrient totals per (person, date)."""
     buckets: dict[tuple[str, date], list[EnrichedMeal]] = defaultdict(list)
     for em in enriched_meals:
         buckets[(em.raw.person, em.raw.date)].append(em)
@@ -123,13 +97,16 @@ def aggregate_daily(enriched_meals: list[EnrichedMeal]) -> list[DailySummary]:
     return summaries
 
 
+def _person_sort_key(name: str) -> tuple[int, str]:
+    """Natural sort: 'person2' before 'person10'."""
+    digits = "".join(ch for ch in name if ch.isdigit())
+    return (int(digits) if digits else 10**9, name)
+
+
 def export_csv(summaries: list[DailySummary], output_path: Path) -> None:
+    """Write daily summaries to CSV, sorted by person then date."""
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
-
-    def _person_sort_key(name: str) -> tuple[int, str]:
-        digits = "".join(ch for ch in name if ch.isdigit())
-        return (int(digits) if digits else 10**9, name)
 
     rows_sorted = sorted(summaries, key=lambda s: (_person_sort_key(s.person), s.date))
 
@@ -189,17 +166,3 @@ def run() -> None:
     summaries = [check_alerts(s) for s in summaries]
     export_csv(summaries, config.OUTPUT_PATH)
     print_alert_report(summaries)
-
-
-__all__ = [
-    "aggregate_daily",
-    "clean_meals",
-    "enrich_meals",
-    "export_csv",
-    "load_csv",
-    "run",
-    "DailySummary",
-    "EnrichedMeal",
-    "MealItem",
-    "RawMeal",
-]

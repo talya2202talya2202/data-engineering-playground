@@ -1,22 +1,7 @@
-"""Alert rules and human-readable reporting.
+"""Alert flagging and human-readable reporting.
 
-In the design (ETL_DESIGN.md) this module covers:
-
-    Step 4 (flag part)  -> check_alerts        (sets sodium_alert /
-                                                 potassium_alert columns
-                                                 that land in
-                                                 analytics.fct_daily_nutrition)
-    Step 5 (Emit alerts)-> print_alert_report  (the prototype's stand-in
-                                                 for the production alert
-                                                 dispatcher that writes
-                                                 analytics.fct_alerts)
-
-Alert logic is isolated from aggregation so new rules (e.g. added-sugar
-cap, saturated-fat cap, per-user personalized targets) can be added
-without touching the pipeline. In the future `check_alerts` would take
-a per-user `NutritionTarget` object (sourced from the SCD2 `targets`
-table) instead of the global constants — the function signature is
-already set up for that evolution.
+Alert logic is isolated from aggregation so new rules can be added
+without touching the pipeline.
 """
 
 from __future__ import annotations
@@ -29,20 +14,20 @@ from .models import DailySummary
 
 
 def check_alerts(summary: DailySummary) -> DailySummary:
-    """Mutate & return the summary with alert flags set."""
+    """Set sodium/potassium alert flags on a daily summary."""
     summary.sodium_alert = summary.total_sodium_mg > DAILY_SODIUM_LIMIT_MG
     summary.potassium_alert = summary.total_potassium_mg < DAILY_POTASSIUM_TARGET_MG
     return summary
 
 
 def print_alert_report(summaries: list[DailySummary]) -> None:
-    """Print a grouped-by-person report of days with at least one alert."""
+    """Print a per-person report of days with at least one alert."""
     flagged = [s for s in summaries if s.sodium_alert or s.potassium_alert]
 
     print("\n=== NUTRITION ALERTS ===\n")
 
     if not flagged:
-        print("No alerts — everyone hit their targets. \n")
+        print("No alerts — everyone hit their targets.\n")
         return
 
     by_person: dict[str, list[DailySummary]] = defaultdict(list)

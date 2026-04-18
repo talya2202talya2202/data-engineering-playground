@@ -1,4 +1,7 @@
-"""Central configuration. Secrets come from env / .env (gitignored)."""
+"""Configuration: paths, thresholds, and API credentials.
+
+Secrets are read from `.env` (gitignored) or the environment.
+"""
 
 import os
 from pathlib import Path

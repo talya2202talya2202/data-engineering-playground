@@ -1,1 +1,1 @@
-"""nutrition_pipeline source package."""
+"""Nutrition pipeline source package."""

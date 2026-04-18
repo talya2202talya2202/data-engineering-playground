@@ -1,18 +1,16 @@
-"""Meal-text normalization.
+"""Deterministic normalization of free-text meal descriptions.
 
-The free-text field in the CSV looks like:
-    "Ate a sandwich with ham, cheese, and mustard for lunch."
-    "Drank a cappuccino after lunch."
+The CSV contains phrases like "Ate a sandwich with ham, cheese, and mustard
+for lunch." The nutrition API works best with the food phrase alone
+("sandwich with ham cheese mustard"), so we strip leading verbs and trailing
+meal-context phrases.
 
-The API works best with short food phrases ("sandwich with ham cheese mustard",
-"cappuccino"), so we strip verbs and time-of-day context. The normalized form
-is ALSO the cache key, which is why we want it to be aggressive and stable:
-small wording differences ("Had a..." vs "Ate a...") should collapse to the
-same key and share one API call.
+The normalized output is also the cache key, so it must be stable: small
+wording differences ("Had a..." vs "Ate a...") should collapse to the same
+key and share one API call.
 
-This module is intentionally regex-only (no NLP) — "good enough" per the
-assignment — but is structured so it can be swapped for a smarter parser
-(spaCy, LLM) without touching callers.
+Regex-only by design ("good enough" per the assignment); structured so it
+can be swapped for an NLP/LLM parser without touching callers.
 """
 
 from __future__ import annotations
@@ -63,11 +61,7 @@ _WS_RE = re.compile(r"\s+")
 
 
 def normalize_meal_text(raw_text: str) -> str:
-    """Clean a free-text meal description into a stable query string.
-
-    The output is used both as the API query and as the cache key, so two
-    semantically equivalent inputs MUST produce the same output.
-    """
+    """Reduce a free-text meal description to a stable query / cache key."""
     if not raw_text:
         return ""
 
@@ -81,16 +75,3 @@ def normalize_meal_text(raw_text: str) -> str:
     text = _WS_RE.sub(" ", text).strip()
 
     return text
-
-
-if __name__ == "__main__":
-    samples = [
-        "Had a grilled chicken breast with quinoa for lunch.",
-        "Drank a cappuccino after lunch.",
-        "Ate a sandwich with ham, cheese, and mustard for lunch.",
-        "Drank water throughout the day.",
-        "A pasta primavera for dinner.",
-        "Drank a hot cup of mulled wine on a cold evening.",
-    ]
-    for s in samples:
-        print(f"{s!r:70s} -> {normalize_meal_text(s)!r}")

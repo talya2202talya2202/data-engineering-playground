@@ -1,10 +1,10 @@
-"""Entry point for the nutrition_pipeline.
+"""Entry point for the nutrition pipeline.
+
+Reads `data/meals_data_raw.csv`, writes `outputs/daily_summaries.csv`,
+and persists an API cache under `cache/nutrition_cache.json`.
 
 Usage:
     python main.py
-
-Expects data/meals_data_raw.csv to exist. Writes outputs/daily_summaries.csv
-and persists an API cache under cache/nutrition_cache.json.
 """
 
 import logging

@@ -1,3 +1,11 @@
+"""HTTP client for the api-ninjas nutrition endpoint with a persistent cache.
+
+The cache is keyed on the already-normalized query string and stores the
+raw API response (so re-parsing into new fields later doesn't require
+re-fetching). Empty / failed responses are cached too, so unparseable
+inputs don't keep burning quota.
+"""
+
 from __future__ import annotations
 
 import json
@@ -13,8 +21,9 @@ logger = logging.getLogger(__name__)
 
 _REQUEST_TIMEOUT_SECONDS = 15
 
-# Fields we care about. Anything else in the API response (or any of these
-# whose value isn't actually a number) is dropped before hitting the cache.
+# Numeric fields we keep from the API response. Anything else (including
+# paywalled fields like `calories` / `protein_g` that come back as strings
+# on the free plan) is dropped before caching.
 _NUMERIC_FIELDS = (
     "serving_size_g",
     "sodium_mg",
@@ -29,7 +38,11 @@ _NUMERIC_FIELDS = (
 
 
 def _as_float(val: Any) -> float | None:
-    """Return a float if `val` is actually numeric, else None.
+    """Return a float if `val` is numeric, else None.
+
+    Paywalled fields come back as strings like
+    "Only available for premium subscribers." — those resolve to None
+    so they're excluded rather than coerced to 0.0.
     """
     if isinstance(val, bool):
         return None
@@ -44,11 +57,7 @@ def _as_float(val: Any) -> float | None:
 
 
 def _clean_item(item: dict) -> dict:
-    """Strip non-numeric / paywalled fields from a raw API item.
-
-    Keeps `name` and any numeric field from `_NUMERIC_FIELDS`. Everything
-    else — is dropped at write time.
-    """
+    """Keep only `name` and known numeric fields from a raw API item."""
     cleaned: dict = {}
     name = item.get("name")
     if isinstance(name, str) and name:
@@ -61,6 +70,8 @@ def _clean_item(item: dict) -> dict:
 
 
 class NutritionClient:
+    """Cache-first wrapper around the nutrition API."""
+
     def __init__(self, api_key: str, api_url: str, cache_path: Path):
         self.api_key = api_key
         self.api_url = api_url
@@ -68,7 +79,7 @@ class NutritionClient:
         self._cache: dict[str, list[dict]] = self._load_cache()
 
     def get_nutrition(self, normalized_query: str) -> list[MealItem]:
-        """Return parsed nutrition facts for a query, using the cache first."""
+        """Return parsed nutrition facts for a query, hitting the cache first."""
         if not normalized_query:
             return []
 
@@ -105,9 +116,6 @@ class NutritionClient:
             return []
 
     def _parse_items(self, items: list[dict]) -> list[MealItem]:
-        # Items are already cleaned by _clean_item before caching, so every
-        # numeric field present here is guaranteed to be a float. Missing
-        # fields fall back to the dataclass defaults (0.0).
         meal_items = []
         for item in items:
             if not isinstance(item, dict):
@@ -135,8 +143,7 @@ class NutritionClient:
             logger.warning("Could not load cache (%s); starting empty.", e)
             return {}
 
-        # Re-apply the field filter so caches written by older versions
-        # (with paywalled strings, unknown fields, etc.) self-heal on load.
+        # Re-clean on load so caches written by older versions self-heal.
         return {
             key: [_clean_item(item) for item in items if isinstance(item, dict)]
             for key, items in data.items()
