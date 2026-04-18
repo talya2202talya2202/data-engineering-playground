@@ -1,19 +1,3 @@
-"""HTTP client for api-ninjas nutrition API with a persistent JSON cache.
-
-Why a cache?
-- The API is metered. The raw CSV has ~1000 rows but only a few hundred
-  *distinct* meals, and even across runs we should never re-fetch something
-  we've already seen.
-- The cache key is the already-normalized query string (see meal_parser),
-  so "Had a caprese salad for lunch" and "Ate a caprese salad for lunch"
-  both resolve to one entry.
-- We cache the RAW API response (list of dicts) — NOT the parsed
-  MealItem objects. If we add/rename fields later we can re-parse
-  without re-hitting the API.
-- Negative results (empty lists, failures) are also cached so unparseable
-  meals like "water throughout the day" don't keep retrying.
-"""
-
 from __future__ import annotations
 
 import json
@@ -30,8 +14,7 @@ logger = logging.getLogger(__name__)
 _REQUEST_TIMEOUT_SECONDS = 15
 
 # Fields we care about. Anything else in the API response (or any of these
-# whose value isn't actually a number — e.g. "Only available for premium
-# subscribers.") is dropped before hitting the cache.
+# whose value isn't actually a number) is dropped before hitting the cache.
 _NUMERIC_FIELDS = (
     "serving_size_g",
     "sodium_mg",
@@ -47,10 +30,6 @@ _NUMERIC_FIELDS = (
 
 def _as_float(val: Any) -> float | None:
     """Return a float if `val` is actually numeric, else None.
-
-    Paywalled fields come back as strings like
-    "Only available for premium subscribers." — those are the main reason
-    this returns None instead of coercing to 0.0.
     """
     if isinstance(val, bool):
         return None
@@ -68,9 +47,7 @@ def _clean_item(item: dict) -> dict:
     """Strip non-numeric / paywalled fields from a raw API item.
 
     Keeps `name` and any numeric field from `_NUMERIC_FIELDS`. Everything
-    else — including `calories` and `protein_g` on the free plan, any
-    future premium-only field, and any field that randomly returns None —
-    is dropped at write time.
+    else — is dropped at write time.
     """
     cleaned: dict = {}
     name = item.get("name")

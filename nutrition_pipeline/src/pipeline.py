@@ -62,9 +62,8 @@ def clean_meals(raw_meals: list[RawMeal]) -> list[RawMeal]:
     """Step 2 (Parse + clean): stamp `normalized_text` on every meal.
 
     In the productionized ETL this is the job that writes the `meals`
-    table — doing it here (rather than inside `enrich_meals`) means the
-    normalized string, which is also the `nutrition_cache` key, is
-    computed exactly once upstream and becomes a first-class column every
+    table — doing it here means the normalized string, which is also the `nutrition_cache` key, 
+    is computed exactly once upstream and becomes a first-class column every
     later step can read from.
     """
     for rm in raw_meals:

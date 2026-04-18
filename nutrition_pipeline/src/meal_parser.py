@@ -72,6 +72,7 @@ def normalize_meal_text(raw_text: str) -> str:
         return ""
 
     text = raw_text.strip().lower()
+    text = text.replace("&", " and ")
 
     text = _LEADING_RE.sub("", text).strip()
     text = _TRAILING_RE.sub("", text).strip()
