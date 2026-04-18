@@ -1,8 +1,16 @@
-"""End-to-end orchestration: CSV → API enrichment → aggregation → alerts.
+"""End-to-end orchestration: CSV → clean → API enrichment → aggregation → alerts.
 
 Each step is its own pure(-ish) function so it can be unit tested or swapped
-for an Airflow/Dagster task in the productionized pipeline (see the ETL
-design doc). `run()` is the only entry point callers should need.
+for an Airflow/Dagster task in the productionized pipeline. The function
+boundaries deliberately mirror the ETL stages in the design doc:
+
+    load_csv       -> ingest raw events (raw.meal_events)
+    clean_meals    -> ETL 1: parse + normalize text (stg.meals)
+    enrich_meals   -> ETL 2: API enrichment via cache   (stg.meal_items)
+    aggregate_daily + check_alerts
+                   -> ETL 3: daily roll-up + alerts     (mart.fct_daily_nutrition)
+
+`run()` is the only entry point callers should need.
 """
 
 from __future__ import annotations
@@ -45,14 +53,32 @@ def load_csv(csv_path: Path) -> list[RawMeal]:
     return meals
 
 
-def enrich_meals(raw_meals: list[RawMeal], client: NutritionClient) -> list[EnrichedMeal]:
-    enriched: list[EnrichedMeal] = []
+def clean_meals(raw_meals: list[RawMeal]) -> list[RawMeal]:
+    """Cleaning step: stamp `normalized_text` on every meal.
+
+    In the productionized ETL this is the job that writes `stg.meals` —
+    doing it here (rather than inside `enrich_meals`) means the normalized
+    string, which is also the nutrition-API cache key, is computed exactly
+    once upstream and becomes a first-class column every later step can
+    read from.
+    """
     for rm in raw_meals:
-        normalized = normalize_meal_text(rm.raw_text)
-        facts = client.get_nutrition(normalized) if normalized else []
-        enriched.append(
-            EnrichedMeal(raw=rm, normalized_query=normalized, nutrition=facts)
-        )
+        rm.normalized_text = normalize_meal_text(rm.raw_text)
+    logger.info("Cleaned/normalized %d meals", len(raw_meals))
+    return raw_meals
+
+
+def enrich_meals(meals: list[RawMeal], client: NutritionClient) -> list[EnrichedMeal]:
+    """Enrichment step: look up nutrition facts for each cleaned meal.
+
+    Assumes `clean_meals` has already run, i.e. `meal.normalized_text` is
+    set. The client handles cache-first lookup so this loop is cheap when
+    queries repeat.
+    """
+    enriched: list[EnrichedMeal] = []
+    for rm in meals:
+        facts = client.get_nutrition(rm.normalized_text) if rm.normalized_text else []
+        enriched.append(EnrichedMeal(raw=rm, nutrition=facts))
     logger.info(
         "Enriched %d meals (cache contains %d unique queries)",
         len(enriched),
@@ -145,7 +171,8 @@ def run() -> None:
     )
 
     raw_meals = load_csv(config.CSV_PATH)
-    enriched = enrich_meals(raw_meals, client)
+    cleaned = clean_meals(raw_meals)
+    enriched = enrich_meals(cleaned, client)
     summaries = aggregate_daily(enriched)
     summaries = [check_alerts(s) for s in summaries]
     export_csv(summaries, config.OUTPUT_PATH)
@@ -154,6 +181,7 @@ def run() -> None:
 
 __all__ = [
     "aggregate_daily",
+    "clean_meals",
     "enrich_meals",
     "export_csv",
     "load_csv",

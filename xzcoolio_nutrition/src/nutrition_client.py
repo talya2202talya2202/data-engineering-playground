@@ -29,24 +29,58 @@ logger = logging.getLogger(__name__)
 
 _REQUEST_TIMEOUT_SECONDS = 15
 
+# Fields we care about. Anything else in the API response (or any of these
+# whose value isn't actually a number — e.g. "Only available for premium
+# subscribers.") is dropped before hitting the cache.
+_NUMERIC_FIELDS = (
+    "serving_size_g",
+    "sodium_mg",
+    "potassium_mg",
+    "carbohydrates_total_g",
+    "fiber_g",
+    "sugar_g",
+    "fat_total_g",
+    "fat_saturated_g",
+    "cholesterol_mg",
+)
 
-def _safe_float(val: Any) -> float:
-    """Best-effort float conversion.
 
-    The API sometimes returns missing fields, None, empty strings, or the
-    literal string "Only available for premium subscribers." for paywalled
-    fields — all of those must become 0.0 so downstream sums don't crash.
+def _as_float(val: Any) -> float | None:
+    """Return a float if `val` is actually numeric, else None.
+
+    Paywalled fields come back as strings like
+    "Only available for premium subscribers." — those are the main reason
+    this returns None instead of coercing to 0.0.
     """
-    if val is None:
-        return 0.0
+    if isinstance(val, bool):
+        return None
     if isinstance(val, (int, float)):
         return float(val)
     if isinstance(val, str):
         try:
             return float(val.strip())
         except ValueError:
-            return 0.0
-    return 0.0
+            return None
+    return None
+
+
+def _clean_item(item: dict) -> dict:
+    """Strip non-numeric / paywalled fields from a raw API item.
+
+    Keeps `name` and any numeric field from `_NUMERIC_FIELDS`. Everything
+    else — including `calories` and `protein_g` on the free plan, any
+    future premium-only field, and any field that randomly returns None —
+    is dropped at write time.
+    """
+    cleaned: dict = {}
+    name = item.get("name")
+    if isinstance(name, str) and name:
+        cleaned["name"] = name
+    for field in _NUMERIC_FIELDS:
+        parsed = _as_float(item.get(field))
+        if parsed is not None:
+            cleaned[field] = parsed
+    return cleaned
 
 
 class NutritionClient:
@@ -66,10 +100,11 @@ class NutritionClient:
             return self._parse_items(self._cache[normalized_query])
 
         logger.info("cache MISS — fetching: %s", normalized_query)
-        items = self._fetch_from_api(normalized_query)
-        self._cache[normalized_query] = items
+        raw = self._fetch_from_api(normalized_query)
+        cleaned = [_clean_item(item) for item in raw if isinstance(item, dict)]
+        self._cache[normalized_query] = cleaned
         self._persist_cache()
-        return self._parse_items(items)
+        return self._parse_items(cleaned)
 
     def _fetch_from_api(self, query: str) -> list[dict]:
         try:
@@ -93,22 +128,22 @@ class NutritionClient:
             return []
 
     def _parse_items(self, items: list[dict]) -> list[NutritionFact]:
-        return [
-            NutritionFact(
-                food_name=str(item.get("name", "")),
-                serving_size_g=_safe_float(item.get("serving_size_g")),
-                sodium_mg=_safe_float(item.get("sodium_mg")),
-                potassium_mg=_safe_float(item.get("potassium_mg")),
-                carbohydrates_total_g=_safe_float(item.get("carbohydrates_total_g")),
-                fiber_g=_safe_float(item.get("fiber_g")),
-                sugar_g=_safe_float(item.get("sugar_g")),
-                fat_total_g=_safe_float(item.get("fat_total_g")),
-                fat_saturated_g=_safe_float(item.get("fat_saturated_g")),
-                cholesterol_mg=_safe_float(item.get("cholesterol_mg")),
-            )
-            for item in items
-            if isinstance(item, dict)
-        ]
+        # Items are already cleaned by _clean_item before caching, so every
+        # numeric field present here is guaranteed to be a float. Missing
+        # fields fall back to the dataclass defaults (0.0).
+        facts = []
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            kwargs: dict[str, Any] = {}
+            name = item.get("name")
+            if isinstance(name, str):
+                kwargs["food_name"] = name
+            for field in _NUMERIC_FIELDS:
+                if field in item:
+                    kwargs[field] = item[field]
+            facts.append(NutritionFact(**kwargs))
+        return facts
 
     def _load_cache(self) -> dict[str, list[dict]]:
         if not self.cache_path.exists():
@@ -119,10 +154,17 @@ class NutritionClient:
             if not isinstance(data, dict):
                 logger.warning("Cache file malformed, starting empty.")
                 return {}
-            return data
         except (OSError, json.JSONDecodeError) as e:
             logger.warning("Could not load cache (%s); starting empty.", e)
             return {}
+
+        # Re-apply the field filter so caches written by older versions
+        # (with paywalled strings, unknown fields, etc.) self-heal on load.
+        return {
+            key: [_clean_item(item) for item in items if isinstance(item, dict)]
+            for key, items in data.items()
+            if isinstance(items, list)
+        }
 
     def _persist_cache(self) -> None:
         try:

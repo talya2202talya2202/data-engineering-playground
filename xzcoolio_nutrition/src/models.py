@@ -12,21 +12,30 @@ from datetime import date
 
 @dataclass
 class RawMeal:
-    """One row of user input as it appears in the source CSV."""
+    """One row of user input plus any cleaning-stage derived fields.
+
+    Maps to a row of `stg.meals` in the productionized ETL (see the ETL
+    design doc): `raw_text` is exactly what the user sent, and
+    `normalized_text` is populated by the cleaning step (pipeline.clean_meals)
+    so every downstream consumer — enrichment, aggregation, debugging —
+    sees the same stable, canonical query string without re-deriving it.
+    """
 
     person: str
     raw_text: str
     date: date
+    normalized_text: str = ""
 
 
 @dataclass
 class NutritionFact:
     """A single food item returned by the nutrition API.
 
-    The API may return multiple items per query (e.g. "ham and cheese" → ham
-    item + cheese item), so an EnrichedMeal holds a *list* of these.
-    All numeric fields default to 0.0 so summing is always safe when a field
-    is missing from the API response.
+    Maps to a row of `stg.meal_items` in the productionized ETL. The API
+    may return multiple items per query (e.g. "ham and cheese" → ham item
+    + cheese item), so an EnrichedMeal holds a *list* of these. All numeric
+    fields default to 0.0 so summing is always safe when a field is missing
+    from the API response.
     """
 
     food_name: str = ""
@@ -43,16 +52,25 @@ class NutritionFact:
 
 @dataclass
 class EnrichedMeal:
-    """A RawMeal joined with its parsed API response."""
+    """A RawMeal joined with its parsed API response.
+
+    In production this is a logical join of `stg.meals` and `stg.meal_items`,
+    not a persisted table — it only exists as an in-memory step before
+    daily aggregation. `raw.normalized_text` is the cache key that was
+    used for enrichment; we don't duplicate it on this class.
+    """
 
     raw: RawMeal
-    normalized_query: str
     nutrition: list[NutritionFact] = field(default_factory=list)
 
 
 @dataclass
 class DailySummary:
-    """Per-(person, date) nutrition roll-up with alert flags."""
+    """Per-(person, date) nutrition roll-up with alert flags.
+
+    Maps to `mart.fct_daily_nutrition` in the productionized ETL — one row
+    per (user, local_date) with nutrient totals and per-rule alert flags.
+    """
 
     person: str
     date: date
