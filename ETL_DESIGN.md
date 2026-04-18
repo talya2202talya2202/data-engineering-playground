@@ -13,7 +13,7 @@ This design targets the real-time direction, with a batch layer on top for recon
 
 ## Architecture
 
-ETL architecture — streaming pipeline (always on) + scheduled Air Architecture flow batch layer, both reading and writing the same Iceberg tables
+![ETL architecture — streaming pipeline (always on) + scheduled Airflow batch layer, both reading and writing the same Iceberg tables](./assets/architecture.png)
 
 A streaming consumer drives the live pipeline; an Airflow batch layer runs scheduled jobs against the same Iceberg tables for end-of-day finalization, rollups, data quality, and backfills. Either layer can recover the system on its own.
 
