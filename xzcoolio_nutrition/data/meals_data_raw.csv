@@ -1,0 +1,1003 @@
+Person,Meal,Date
+person1,Had a grilled chicken breast with quinoa for lunch.,2025-02-02
+person1,Drank a hot cappuccino at breakfast.,2025-01-18
+person1,Drank a latte after my morning jog.,2025-02-01
+person1,"Ate a sandwich with ham, cheese, and mustard for lunch.",2025-01-26
+person1,Had roasted chicken with mashed potatoes for lunch.,2025-01-15
+person1,Had a bowl of chili with cornbread for lunch.,2025-01-11
+person1,Ate a caprese salad for lunch.,2025-01-04
+person1,Ate grilled vegetables with couscous for lunch.,2025-01-26
+person1,Had a lamb curry with rice for dinner.,2025-01-06
+person1,Had a shrimp stir-fry with broccoli and rice for dinner.,2025-01-14
+person1,Drank a peach iced tea in the afternoon.,2025-01-18
+person1,Ate a veggie wrap for lunch.,2025-01-24
+person1,Ate a yogurt parfait with granola for breakfast.,2025-01-14
+person1,Drank water throughout the day.,2025-02-01
+person1,Ate baked salmon with roasted vegetables for dinner.,2025-01-04
+person1,Had a cheeseburger with coleslaw for lunch.,2025-01-21
+person1,Drank orange juice alongside my breakfast.,2025-01-06
+person1,Drank a hot cup of mulled wine on a cold evening.,2025-01-24
+person1,Ate a bagel with smoked salmon for breakfast.,2025-01-23
+person1,Drank a cappuccino after lunch.,2025-01-30
+person1,Drank a ginger tea in the evening.,2025-01-09
+person1,Had a club sandwich for lunch.,2025-01-12
+person2,Ate a yogurt parfait with granola for breakfast.,2025-01-05
+person2,"Ate a sandwich with ham, cheese, and mustard for lunch.",2025-01-26
+person2,Ate a vegetable frittata for breakfast.,2025-02-03
+person2,Ate a chicken sandwich with fries for lunch.,2025-01-12
+person2,Had a bagel with cream cheese for breakfast.,2025-02-03
+person2,Ate a caprese salad for lunch.,2025-01-05
+person2,Had a pulled pork sandwich for lunch.,2025-01-28
+person2,Drank hot chocolate after dinner.,2025-01-30
+person2,Had roasted salmon with potatoes and asparagus for dinner.,2025-01-19
+person2,Ate a fruit salad with yogurt for breakfast.,2025-01-13
+person2,Drank a matcha latte in the morning.,2025-01-13
+person2,Drank a peach iced tea in the afternoon.,2025-01-29
+person2,Had a cheeseburger with coleslaw for lunch.,2025-01-08
+person2,Ate a grilled cheese with tomato soup for lunch.,2025-01-05
+person2,Had a bowl of chili with cornbread for lunch.,2025-01-29
+person2,Had a baked potato with sour cream for dinner.,2025-01-16
+person2,Drank a green tea in the afternoon.,2025-01-20
+person2,Drank a smoothie with mango and coconut milk in the morning.,2025-01-23
+person2,Ate a vegetable omelette for breakfast.,2025-01-09
+person2,Ate a quinoa salad with feta cheese for lunch.,2025-01-21
+person2,Had grilled pork chops with applesauce for dinner.,2025-01-15
+person2,Drank a cold glass of iced tea with lemon.,2025-01-18
+person2,Drank iced tea at lunch.,2025-01-06
+person2,Drank a chai latte in the morning.,2025-01-17
+person2,Had grilled chicken and vegetables for dinner.,2025-01-29
+person2,Had grilled shrimp with rice for dinner.,2025-01-04
+person2,Drank water throughout the day.,2025-01-10
+person2,Had a cheeseburger with fries for lunch.,2025-01-31
+person2,Drank a cappuccino after lunch.,2025-02-01
+person2,Had a grilled cheese sandwich for lunch.,2025-01-09
+person2,Had chicken wings with a side of ranch dressing for dinner.,2025-02-03
+person3,Ate baked ziti with garlic bread for dinner.,2025-01-25
+person3,Drank a cold brew coffee at noon.,2025-01-22
+person3,Drank iced tea at lunch.,2025-01-28
+person3,Drank a milkshake after dinner.,2025-01-23
+person3,Drank an espresso in the afternoon.,2025-01-17
+person3,Ate an egg salad sandwich for breakfast.,2025-01-29
+person3,Had a cheeseburger with fries for lunch.,2025-01-11
+person3,Drank a chai latte in the morning.,2025-01-09
+person3,Drank a glass of lemonade with lunch.,2025-01-27
+person3,Ate a grilled cheese with tomato soup for lunch.,2025-02-01
+person3,Had a grilled chicken breast with quinoa for lunch.,2025-01-07
+person3,Ate a yogurt parfait with granola for breakfast.,2025-01-26
+person3,Had a cheeseburger with coleslaw for lunch.,2025-01-09
+person3,Ate a shrimp cocktail as a starter for dinner.,2025-01-16
+person3,Drank a hot cappuccino at breakfast.,2025-01-26
+person3,Ate a bagel with smoked salmon for breakfast.,2025-01-19
+person3,Ate a poached egg on avocado toast for breakfast.,2025-01-24
+person3,Had a bowl of chili with cornbread for lunch.,2025-01-05
+person3,Ate a quinoa salad with feta cheese for lunch.,2025-01-16
+person3,"Ate a sandwich with ham, cheese, and mustard for lunch.",2025-01-23
+person3,Had avocado toast for breakfast.,2025-01-06
+person3,Had spaghetti with marinara sauce for dinner.,2025-01-31
+person3,Ate a caprese salad for lunch.,2025-01-05
+person3,Had fish tacos for dinner.,2025-01-13
+person3,Drank a protein shake after my workout.,2025-02-02
+person3,Ate a vegetable stir-fry with rice for lunch.,2025-01-04
+person3,Ate a vegetable frittata for breakfast.,2025-01-23
+person4,Had chicken wings with a side of ranch dressing for dinner.,2025-01-27
+person4,Ate a yogurt parfait with granola for breakfast.,2025-01-06
+person4,Had a smoothie bowl with granola for breakfast.,2025-01-23
+person4,Ate a turkey burger with a side salad for lunch.,2025-01-15
+person4,Ate a vegetable frittata for breakfast.,2025-01-11
+person4,Drank a peach iced tea in the afternoon.,2025-01-28
+person4,Had scrambled eggs with toast for breakfast.,2025-01-14
+person4,Had a bagel with cream cheese for breakfast.,2025-01-24
+person4,Ate a vegetable omelette for breakfast.,2025-01-10
+person4,Ate a caprese salad for lunch.,2025-01-31
+person4,Drank a protein shake after my workout.,2025-01-20
+person4,Drank a hot cup of mulled wine on a cold evening.,2025-01-09
+person4,Drank a smoothie with mango and coconut milk in the morning.,2025-01-08
+person4,Drank a green tea in the afternoon.,2025-01-16
+person4,Ate a bagel with smoked salmon for breakfast.,2025-01-23
+person4,Drank a hot cup of tea when I woke up.,2025-01-22
+person4,A pasta primavera for dinner.,2025-01-28
+person4,Ate pancakes with maple syrup for breakfast.,2025-01-25
+person4,Had a bowl of minestrone soup for dinner.,2025-01-23
+person4,Drank a glass of lemonade with lunch.,2025-01-10
+person4,Had French toast with strawberries for breakfast.,2025-01-18
+person5,Had grilled chicken and vegetables for dinner.,2025-01-04
+person5,Ate a veggie wrap for lunch.,2025-01-07
+person5,Drank a cranberry juice in the morning.,2025-02-02
+person5,Drank a mango lassi after dinner.,2025-01-14
+person5,Drank a glass of wine with dinner.,2025-01-24
+person5,Had a pulled pork sandwich for lunch.,2025-01-24
+person5,Ate a turkey and cheese sandwich for lunch.,2025-01-04
+person5,Ate a chicken sandwich with fries for lunch.,2025-01-22
+person5,Drank a latte after my morning jog.,2025-01-27
+person5,Drank a fresh fruit smoothie in the morning.,2025-01-28
+person5,Drank a smoothie with mango and coconut milk in the morning.,2025-01-05
+person5,Ate a quinoa salad with feta cheese for lunch.,2025-01-22
+person5,Ate a vegetable pizza for dinner.,2025-01-27
+person5,Ate a cheeseboard with crackers and fruit for dinner.,2025-02-03
+person5,Ate an egg salad sandwich for breakfast.,2025-01-11
+person5,Had a ham and cheese croissant for breakfast.,2025-01-12
+person5,Ate chicken noodle soup for lunch.,2025-01-11
+person5,Drank water throughout the day.,2025-01-18
+person5,Ate a vegetable omelette for breakfast.,2025-01-28
+person5,Drank a chai latte in the morning.,2025-01-13
+person5,Had fish tacos for dinner.,2025-01-14
+person5,Had lasagna with garlic bread for dinner.,2025-01-18
+person5,Drank a hot cup of mulled wine on a cold evening.,2025-01-19
+person5,Had a shrimp stir-fry with broccoli and rice for dinner.,2025-01-16
+person5,Had a smoothie bowl with granola for breakfast.,2025-01-26
+person6,Drank a cold brew coffee at noon.,2025-01-05
+person6,Had grilled shrimp with rice for dinner.,2025-01-27
+person6,Ate a grilled cheese with tomato soup for lunch.,2025-01-26
+person6,Ate a veggie wrap for lunch.,2025-01-21
+person6,Had grilled chicken and vegetables for dinner.,2025-01-11
+person6,Had a club sandwich for lunch.,2025-02-03
+person6,Had a bagel with cream cheese for breakfast.,2025-01-19
+person6,Ate a chicken sandwich with fries for lunch.,2025-02-01
+person6,Ate a bowl of cereal with milk for breakfast.,2025-01-31
+person6,Ate a caprese salad for lunch.,2025-01-17
+person6,Drank a green tea in the afternoon.,2025-01-06
+person6,Had a bowl of chili with cornbread for lunch.,2025-01-10
+person6,Ate a vegetable omelette for breakfast.,2025-01-22
+person6,Drank a glass of lemonade with lunch.,2025-01-20
+person6,Had French toast with strawberries for breakfast.,2025-01-23
+person6,Drank a hot cup of tea when I woke up.,2025-01-11
+person6,Had a grilled chicken breast with quinoa for lunch.,2025-01-20
+person6,Drank orange juice alongside my breakfast.,2025-01-06
+person6,Had lasagna with garlic bread for dinner.,2025-01-13
+person6,Ate a bacon and egg sandwich for lunch.,2025-01-06
+person6,Ate a bowl of ramen with pork and egg for dinner.,2025-01-23
+person7,Ate a vegetable pizza for dinner.,2025-01-21
+person7,Ate a cheeseboard with crackers and fruit for dinner.,2025-01-22
+person7,Drank a glass of iced water with lunch.,2025-01-18
+person7,Ate baked ziti with garlic bread for dinner.,2025-01-12
+person7,Had a cheeseburger with fries for lunch.,2025-01-04
+person7,Drank a cranberry juice in the morning.,2025-01-26
+person7,Ate a poached egg on avocado toast for breakfast.,2025-01-07
+person7,Drank a milkshake after dinner.,2025-01-29
+person7,Drank a latte after my morning jog.,2025-01-09
+person7,Drank hot chocolate after dinner.,2025-01-14
+person7,Had oatmeal with berries for breakfast.,2025-02-03
+person7,Had grilled pork chops with applesauce for dinner.,2025-01-29
+person7,Had a club sandwich for lunch.,2025-01-22
+person7,Drank a smoothie with spinach and banana in the morning.,2025-01-25
+person7,Drank a glass of wine with dinner.,2025-01-22
+person7,Ate a shrimp cocktail as a starter for dinner.,2025-01-22
+person7,Drank a cold glass of iced tea with lemon.,2025-01-11
+person7,Had a slice of chocolate cake for dessert.,2025-02-03
+person7,"Ate a sandwich with ham, cheese, and mustard for lunch.",2025-01-19
+person7,Had a pulled pork sandwich for lunch.,2025-01-18
+person7,Drank water throughout the day.,2025-01-21
+person7,Had a beef stew with bread for dinner.,2025-01-06
+person7,Drank an espresso in the afternoon.,2025-01-12
+person7,Drank a hot cappuccino at breakfast.,2025-01-10
+person7,Ate chicken noodle soup for lunch.,2025-01-04
+person7,Ate a vegetable stir-fry with rice for lunch.,2025-01-08
+person7,Ate a vegetable omelette for breakfast.,2025-01-15
+person7,A pasta primavera for dinner.,2025-01-04
+person8,Had grilled shrimp with rice for dinner.,2025-01-10
+person8,A pasta primavera for dinner.,2025-01-26
+person8,Ate a vegetable stir-fry with rice for lunch.,2025-01-29
+person8,Drank a smoothie with mango and coconut milk in the morning.,2025-01-08
+person8,Drank a fresh fruit smoothie in the morning.,2025-01-06
+person8,Ate a caprese salad for lunch.,2025-01-28
+person8,Ate baked salmon with roasted vegetables for dinner.,2025-02-01
+person8,Had a grilled chicken breast with quinoa for lunch.,2025-01-21
+person8,Ate a spinach and cheese quiche for breakfast.,2025-01-04
+person8,Ate a shrimp cocktail as a starter for dinner.,2025-01-07
+person8,Ate a turkey burger with a side salad for lunch.,2025-01-05
+person8,Drank orange juice alongside my breakfast.,2025-01-18
+person8,Drank a chai latte in the morning.,2025-01-05
+person8,Ate chicken noodle soup for lunch.,2025-01-20
+person8,Ate a tuna salad for lunch.,2025-01-05
+person8,Drank water throughout the day.,2025-02-02
+person8,Drank a peach iced tea in the afternoon.,2025-01-26
+person8,Ate a fruit salad with yogurt for breakfast.,2025-01-11
+person8,Had a bagel with cream cheese for breakfast.,2025-01-20
+person8,Ate a bagel with smoked salmon for breakfast.,2025-01-26
+person8,Ate a grilled cheese with tomato soup for lunch.,2025-01-31
+person8,Drank an espresso in the afternoon.,2025-01-25
+person8,Ate a bacon and egg sandwich for lunch.,2025-01-22
+person8,Had a bowl of chili with cornbread for lunch.,2025-01-08
+person8,Ate a bowl of cereal with milk for breakfast.,2025-01-15
+person8,Ate a burrito bowl for lunch with rice and beans.,2025-01-10
+person8,Ate a Caesar salad for dinner.,2025-01-08
+person8,Drank a hot cappuccino at breakfast.,2025-01-20
+person8,Ate baked ziti with garlic bread for dinner.,2025-01-10
+person8,Had a shrimp stir-fry with broccoli and rice for dinner.,2025-01-26
+person8,Ate a turkey and cheese sandwich for lunch.,2025-01-09
+person8,Had lasagna with garlic bread for dinner.,2025-01-18
+person9,Drank a hot cup of tea when I woke up.,2025-01-25
+person9,Ate a vegetable frittata for breakfast.,2025-02-02
+person9,Drank a peach iced tea in the afternoon.,2025-01-08
+person9,Had roasted salmon with potatoes and asparagus for dinner.,2025-01-31
+person9,Ate chicken noodle soup for lunch.,2025-02-01
+person9,Ate a bagel with smoked salmon for breakfast.,2025-01-14
+person9,Ate a vegetable pizza for dinner.,2025-01-16
+person9,Had roasted chicken with mashed potatoes for lunch.,2025-01-27
+person9,Had French toast with strawberries for breakfast.,2025-01-13
+person9,Had a cheeseburger with coleslaw for lunch.,2025-02-02
+person9,Had lasagna with garlic bread for dinner.,2025-01-10
+person9,Drank orange juice alongside my breakfast.,2025-01-26
+person9,Ate a shrimp cocktail as a starter for dinner.,2025-01-12
+person9,Had chicken wings with a side of ranch dressing for dinner.,2025-01-23
+person9,"Ate a sandwich with ham, cheese, and mustard for lunch.",2025-01-31
+person9,Drank a ginger tea in the evening.,2025-01-19
+person9,Had a grilled chicken breast with quinoa for lunch.,2025-01-09
+person9,Drank a protein shake after my workout.,2025-01-05
+person9,Had oatmeal with berries for breakfast.,2025-01-12
+person9,Drank a mango lassi after dinner.,2025-01-10
+person9,Had a sandwich with turkey and avocado for lunch.,2025-01-23
+person9,Ate a fruit salad with yogurt for breakfast.,2025-01-20
+person9,Drank a glass of lemonade with lunch.,2025-01-25
+person9,Had a cheeseburger with fries for lunch.,2025-01-27
+person9,Drank a cranberry juice in the morning.,2025-01-20
+person9,Ate a chicken sandwich with fries for lunch.,2025-01-21
+person9,Drank an espresso in the afternoon.,2025-01-17
+person9,Ate a vegetable omelette for breakfast.,2025-01-20
+person9,Had a poached egg on toast for breakfast.,2025-02-03
+person9,Ate a bacon and egg sandwich for lunch.,2025-02-01
+person9,Had a bowl of minestrone soup for dinner.,2025-01-08
+person9,Had fish tacos for dinner.,2025-01-20
+person10,Had a baked potato with sour cream for dinner.,2025-02-01
+person10,Had spaghetti with marinara sauce for dinner.,2025-01-04
+person10,Drank an espresso in the afternoon.,2025-01-29
+person10,Had roasted salmon with potatoes and asparagus for dinner.,2025-02-02
+person10,Ate a banana and peanut butter smoothie for breakfast.,2025-01-07
+person10,Ate a chicken salad with mixed greens for lunch.,2025-01-14
+person10,Drank a glass of sparkling water before dinner.,2025-01-25
+person10,Ate grilled vegetables with couscous for lunch.,2025-01-24
+person10,Had a cheeseburger with coleslaw for lunch.,2025-02-03
+person10,Drank a glass of lemonade with lunch.,2025-01-16
+person10,Had a ham and cheese croissant for breakfast.,2025-02-01
+person10,Drank a smoothie with mango and coconut milk in the morning.,2025-01-04
+person10,Drank a hot cup of tea when I woke up.,2025-01-26
+person10,Ate baked ziti with garlic bread for dinner.,2025-01-21
+person10,Had a shrimp stir-fry with broccoli and rice for dinner.,2025-01-27
+person10,Ate a tuna salad for lunch.,2025-01-28
+person10,Drank a protein shake after my workout.,2025-01-20
+person10,Ate a turkey and cheese sandwich for lunch.,2025-01-26
+person10,Had a bagel with cream cheese for breakfast.,2025-01-08
+person10,Had a falafel wrap with hummus for lunch.,2025-01-16
+person10,Ate a bowl of ramen with pork and egg for dinner.,2025-01-06
+person10,Drank a latte after my morning jog.,2025-01-31
+person10,Drank a glass of wine with dinner.,2025-01-17
+person10,Ate a vegetable pizza for dinner.,2025-01-17
+person10,Ate a bacon and egg sandwich for lunch.,2025-01-14
+person10,Drank a mango lassi after dinner.,2025-01-28
+person10,Ate pancakes with maple syrup for breakfast.,2025-01-19
+person10,Ate a shrimp cocktail as a starter for dinner.,2025-01-14
+person10,Had a cheeseburger with fries for lunch.,2025-01-24
+person10,Had a beef stew with bread for dinner.,2025-01-24
+person10,Ate a vegetable frittata for breakfast.,2025-01-07
+person11,Ate chicken noodle soup for lunch.,2025-01-22
+person11,Had scrambled eggs with toast for breakfast.,2025-01-09
+person11,Drank a hot cup of mulled wine on a cold evening.,2025-01-28
+person11,Drank orange juice alongside my breakfast.,2025-01-10
+person11,Had a slice of chocolate cake for dessert.,2025-01-15
+person11,Ate pancakes with maple syrup for breakfast.,2025-02-03
+person11,Ate a vegetable pizza for dinner.,2025-01-06
+person11,Ate an egg salad sandwich for breakfast.,2025-01-13
+person11,Had fish tacos for dinner.,2025-01-22
+person11,Ate a spinach and cheese quiche for breakfast.,2025-01-11
+person11,Ate a poached egg on avocado toast for breakfast.,2025-01-26
+person11,Drank a glass of wine with dinner.,2025-01-24
+person11,Ate a bowl of cereal with milk for breakfast.,2025-02-02
+person11,Ate a grilled cheese with tomato soup for lunch.,2025-01-31
+person11,Had a slice of pizza for dinner.,2025-01-31
+person11,Drank a protein shake after my workout.,2025-01-10
+person11,Drank a cranberry juice in the morning.,2025-01-22
+person11,Had a cheeseburger with coleslaw for lunch.,2025-01-18
+person11,Ate a caprese salad for lunch.,2025-02-03
+person11,Had a chicken parmigiana for dinner.,2025-01-19
+person11,Drank a glass of iced water with lunch.,2025-01-13
+person11,Had grilled pork chops with applesauce for dinner.,2025-01-18
+person11,Had a poached egg on toast for breakfast.,2025-01-04
+person11,Drank a milkshake after dinner.,2025-01-04
+person11,Had a club sandwich for lunch.,2025-01-09
+person11,Had a bowl of chili with cornbread for lunch.,2025-01-17
+person12,Ate a poached egg on avocado toast for breakfast.,2025-01-26
+person12,Had scrambled eggs with toast for breakfast.,2025-01-23
+person12,Had roasted salmon with potatoes and asparagus for dinner.,2025-01-15
+person12,Drank a cold glass of iced tea with lemon.,2025-01-14
+person12,Ate chicken noodle soup for lunch.,2025-01-30
+person12,Drank a mango lassi after dinner.,2025-01-11
+person12,Had fish tacos for dinner.,2025-01-18
+person12,Drank a hot cup of mulled wine on a cold evening.,2025-01-17
+person12,Had a club sandwich for lunch.,2025-01-28
+person12,Ate a vegetable omelette for breakfast.,2025-02-01
+person12,Drank iced tea at lunch.,2025-01-22
+person12,Ate a turkey and cheese sandwich for lunch.,2025-01-31
+person12,Drank a latte after my morning jog.,2025-01-19
+person12,"Ate a sandwich with ham, cheese, and mustard for lunch.",2025-01-20
+person12,Drank a cold brew coffee at noon.,2025-01-08
+person12,Had a bagel with cream cheese for breakfast.,2025-01-20
+person12,Had a beef stew with bread for dinner.,2025-01-13
+person12,Ate an egg salad sandwich for breakfast.,2025-01-10
+person12,Drank a chai latte in the morning.,2025-01-14
+person12,Ate a bowl of ramen with pork and egg for dinner.,2025-01-30
+person12,Ate a vegetable frittata for breakfast.,2025-01-15
+person12,Drank a cranberry juice in the morning.,2025-02-02
+person12,Had grilled shrimp with rice for dinner.,2025-01-24
+person12,Ate a bacon and egg sandwich for lunch.,2025-01-17
+person12,Drank a smoothie with mango and coconut milk in the morning.,2025-01-23
+person12,Had a cheeseburger with fries for lunch.,2025-01-11
+person12,Ate a chicken salad with mixed greens for lunch.,2025-01-29
+person12,Had a pulled pork sandwich for lunch.,2025-01-08
+person12,Ate a bowl of cereal with milk for breakfast.,2025-01-14
+person12,Had a lamb curry with rice for dinner.,2025-01-05
+person12,Had a ham and cheese croissant for breakfast.,2025-01-09
+person12,Drank hot chocolate after dinner.,2025-01-11
+person12,Had a slice of pizza for dinner.,2025-01-11
+person13,Had roasted chicken with mashed potatoes for lunch.,2025-01-05
+person13,Had roasted salmon with potatoes and asparagus for dinner.,2025-01-18
+person13,Had a baked potato with sour cream for dinner.,2025-01-30
+person13,Had a slice of pizza for dinner.,2025-01-24
+person13,Ate a grilled cheese with tomato soup for lunch.,2025-01-08
+person13,Ate a spinach and cheese quiche for breakfast.,2025-01-12
+person13,Drank a green tea in the afternoon.,2025-01-23
+person13,Had a ham and cheese croissant for breakfast.,2025-01-31
+person13,Had a cheeseburger with fries for lunch.,2025-01-19
+person13,Ate a burrito bowl for lunch with rice and beans.,2025-01-28
+person13,Ate a yogurt parfait with granola for breakfast.,2025-01-13
+person13,Drank a cold brew coffee at noon.,2025-01-27
+person13,Drank a glass of wine with dinner.,2025-01-31
+person13,Drank a latte after my morning jog.,2025-01-30
+person13,Drank orange juice alongside my breakfast.,2025-01-07
+person13,Ate a Caesar salad for dinner.,2025-01-24
+person13,Drank a peach iced tea in the afternoon.,2025-01-26
+person13,Drank a smoothie with mango and coconut milk in the morning.,2025-01-28
+person13,Had scrambled eggs with toast for breakfast.,2025-01-15
+person13,"Ate a sandwich with ham, cheese, and mustard for lunch.",2025-01-18
+person13,Had a lamb curry with rice for dinner.,2025-01-16
+person13,Drank a matcha latte in the morning.,2025-01-20
+person13,Ate a bacon and egg sandwich for lunch.,2025-01-14
+person13,Ate a banana and peanut butter smoothie for breakfast.,2025-02-03
+person13,Had a grilled chicken breast with quinoa for lunch.,2025-01-13
+person13,Had a bowl of minestrone soup for dinner.,2025-02-02
+person13,Ate a vegetable pizza for dinner.,2025-01-22
+person13,Drank a glass of iced water with lunch.,2025-01-24
+person13,Ate chicken noodle soup for lunch.,2025-01-17
+person13,Drank a hot cappuccino at breakfast.,2025-01-16
+person13,Drank a mango lassi after dinner.,2025-01-25
+person13,Ate a chicken sandwich with fries for lunch.,2025-01-28
+person13,Had a falafel wrap with hummus for lunch.,2025-01-26
+person14,Had a poached egg on toast for breakfast.,2025-01-10
+person14,Ate a vegetable omelette for breakfast.,2025-01-16
+person14,Drank a cappuccino after lunch.,2025-01-19
+person14,Had a club sandwich for lunch.,2025-01-07
+person14,Drank a ginger tea in the evening.,2025-01-25
+person14,Had a chicken parmigiana for dinner.,2025-01-23
+person14,Ate a chicken salad with mixed greens for lunch.,2025-01-28
+person14,Had a bagel with cream cheese for breakfast.,2025-01-24
+person14,Ate a burrito bowl for lunch with rice and beans.,2025-01-31
+person14,Ate a cheeseboard with crackers and fruit for dinner.,2025-01-11
+person14,Had avocado toast for breakfast.,2025-01-20
+person14,Drank a smoothie with mango and coconut milk in the morning.,2025-01-11
+person14,Had a slice of chocolate cake for dessert.,2025-01-12
+person14,Ate grilled vegetables with couscous for lunch.,2025-01-25
+person14,Had a slice of pizza for dinner.,2025-01-26
+person14,Drank a smoothie with spinach and banana in the morning.,2025-01-11
+person14,Ate a caprese salad for lunch.,2025-01-27
+person14,Ate a banana and peanut butter smoothie for breakfast.,2025-01-09
+person14,Drank a milkshake after dinner.,2025-01-07
+person14,Drank a peach iced tea in the afternoon.,2025-01-05
+person14,Had French toast with strawberries for breakfast.,2025-01-11
+person14,Ate a veggie wrap for lunch.,2025-01-13
+person14,Ate baked ziti with garlic bread for dinner.,2025-01-14
+person14,Had spaghetti with marinara sauce for dinner.,2025-01-17
+person14,Ate a turkey and cheese sandwich for lunch.,2025-01-17
+person14,Drank a cranberry juice in the morning.,2025-02-01
+person14,Had a veggie burger with sweet potato fries for lunch.,2025-01-12
+person14,Had a falafel wrap with hummus for lunch.,2025-01-04
+person14,Had fish tacos for dinner.,2025-01-27
+person14,Drank orange juice alongside my breakfast.,2025-01-29
+person14,Ate a grilled cheese with tomato soup for lunch.,2025-01-04
+person14,Had a pulled pork sandwich for lunch.,2025-01-27
+person15,Drank a hot cup of mulled wine on a cold evening.,2025-01-28
+person15,Had a slice of chocolate cake for dessert.,2025-01-07
+person15,Ate pancakes with maple syrup for breakfast.,2025-02-03
+person15,Had grilled shrimp with rice for dinner.,2025-02-01
+person15,Ate a yogurt parfait with granola for breakfast.,2025-01-12
+person15,Had a cheeseburger with fries for lunch.,2025-01-14
+person15,Ate a poached egg on avocado toast for breakfast.,2025-01-06
+person15,Ate a vegetable pizza for dinner.,2025-01-15
+person15,Drank a glass of lemonade with lunch.,2025-01-09
+person15,Drank a cappuccino after lunch.,2025-02-01
+person15,Ate a turkey and cheese sandwich for lunch.,2025-01-05
+person15,Ate baked salmon with roasted vegetables for dinner.,2025-02-03
+person15,Drank a latte after my morning jog.,2025-01-18
+person15,Ate a fruit salad with yogurt for breakfast.,2025-01-27
+person15,Ate a turkey burger with a side salad for lunch.,2025-02-02
+person15,Ate a Caesar salad for dinner.,2025-01-12
+person15,Ate a veggie wrap for lunch.,2025-01-18
+person15,Had grilled chicken and vegetables for dinner.,2025-01-22
+person15,Ate a spinach and cheese quiche for breakfast.,2025-01-08
+person15,Drank an iced latte in the afternoon.,2025-01-07
+person15,Had a slice of pizza for dinner.,2025-01-06
+person15,Drank a smoothie with spinach and banana in the morning.,2025-01-08
+person15,Had a shrimp stir-fry with broccoli and rice for dinner.,2025-01-31
+person15,Had a sandwich with turkey and avocado for lunch.,2025-01-18
+person15,Ate a caprese salad for lunch.,2025-02-03
+person15,Ate chicken noodle soup for lunch.,2025-02-03
+person15,Ate a burrito bowl for lunch with rice and beans.,2025-01-24
+person16,Had a baked potato with sour cream for dinner.,2025-01-20
+person16,Had a ham and cheese croissant for breakfast.,2025-02-01
+person16,Had French toast with strawberries for breakfast.,2025-01-09
+person16,Drank iced tea at lunch.,2025-01-08
+person16,Had a grilled chicken breast with quinoa for lunch.,2025-01-30
+person16,Had a cheeseburger with fries for lunch.,2025-01-04
+person16,Ate a tuna salad for lunch.,2025-01-26
+person16,Ate baked salmon with roasted vegetables for dinner.,2025-01-22
+person16,Ate a poached egg on avocado toast for breakfast.,2025-01-07
+person16,Drank a peach iced tea in the afternoon.,2025-01-21
+person16,Had oatmeal with berries for breakfast.,2025-01-12
+person16,Had a lamb curry with rice for dinner.,2025-01-20
+person16,Had roasted chicken with mashed potatoes for lunch.,2025-01-17
+person16,Had spaghetti with marinara sauce for dinner.,2025-01-26
+person16,Drank a chai latte in the morning.,2025-01-17
+person16,Ate a Caesar salad for dinner.,2025-01-12
+person16,Drank orange juice alongside my breakfast.,2025-01-14
+person16,Ate a chicken sandwich with fries for lunch.,2025-01-20
+person16,Had a beef stew with bread for dinner.,2025-01-11
+person16,Ate a quinoa salad with feta cheese for lunch.,2025-01-19
+person16,Ate a fruit salad with yogurt for breakfast.,2025-01-17
+person16,Drank an espresso in the afternoon.,2025-01-27
+person16,Had grilled shrimp with rice for dinner.,2025-01-26
+person16,Drank a mango lassi after dinner.,2025-01-26
+person16,Drank a green tea in the afternoon.,2025-01-15
+person16,Ate a vegetable stir-fry with rice for lunch.,2025-01-17
+person16,Drank a matcha latte in the morning.,2025-01-24
+person16,Ate a cheeseboard with crackers and fruit for dinner.,2025-01-14
+person16,Had a club sandwich for lunch.,2025-01-21
+person16,Ate a spinach and cheese quiche for breakfast.,2025-01-07
+person16,Ate a bowl of ramen with pork and egg for dinner.,2025-02-02
+person16,Ate a bagel with smoked salmon for breakfast.,2025-01-06
+person16,"Ate a sandwich with ham, cheese, and mustard for lunch.",2025-01-15
+person17,Ate a quinoa salad with feta cheese for lunch.,2025-01-26
+person17,Ate baked salmon with roasted vegetables for dinner.,2025-01-19
+person17,Drank orange juice alongside my breakfast.,2025-01-08
+person17,Ate a caprese salad for lunch.,2025-02-01
+person17,Drank iced tea at lunch.,2025-01-13
+person17,Had a slice of chocolate cake for dessert.,2025-01-27
+person17,Ate a bagel with smoked salmon for breakfast.,2025-01-05
+person17,Had a pulled pork sandwich for lunch.,2025-01-07
+person17,Had a bowl of chili with cornbread for lunch.,2025-01-14
+person17,Had a club sandwich for lunch.,2025-01-19
+person17,Ate baked ziti with garlic bread for dinner.,2025-02-01
+person17,Had a grilled cheese sandwich for lunch.,2025-01-11
+person17,Had lasagna with garlic bread for dinner.,2025-01-21
+person17,Ate a vegetable frittata for breakfast.,2025-01-08
+person17,Had fish tacos for dinner.,2025-02-03
+person17,Ate a fruit salad with yogurt for breakfast.,2025-01-15
+person17,Ate a grilled cheese with tomato soup for lunch.,2025-01-12
+person17,Ate a poached egg on avocado toast for breakfast.,2025-02-02
+person17,Had spaghetti with marinara sauce for dinner.,2025-02-03
+person17,Had grilled shrimp with rice for dinner.,2025-01-12
+person17,Ate chicken noodle soup for lunch.,2025-01-23
+person18,Ate a turkey and cheese sandwich for lunch.,2025-01-21
+person18,Drank a hot cup of mulled wine on a cold evening.,2025-01-21
+person18,Ate a bowl of cereal with milk for breakfast.,2025-01-11
+person18,Ate baked salmon with roasted vegetables for dinner.,2025-01-19
+person18,Drank a mango lassi after dinner.,2025-01-14
+person18,Drank an iced latte in the afternoon.,2025-02-01
+person18,Drank a protein shake after my workout.,2025-01-27
+person18,Ate a fruit salad with yogurt for breakfast.,2025-01-26
+person18,Drank a peach iced tea in the afternoon.,2025-01-19
+person18,Ate a vegetable omelette for breakfast.,2025-01-30
+person18,Had grilled pork chops with applesauce for dinner.,2025-01-19
+person18,Drank a fresh fruit smoothie in the morning.,2025-02-02
+person18,Ate baked ziti with garlic bread for dinner.,2025-01-08
+person18,"Ate a sandwich with ham, cheese, and mustard for lunch.",2025-01-26
+person18,Drank orange juice alongside my breakfast.,2025-01-10
+person18,Ate a chicken Caesar wrap for lunch.,2025-01-12
+person18,Had a pulled pork sandwich for lunch.,2025-01-26
+person18,Ate a Caesar salad for dinner.,2025-01-28
+person18,Ate a bagel with smoked salmon for breakfast.,2025-01-17
+person18,Ate a veggie wrap for lunch.,2025-01-11
+person18,Ate a chicken salad with mixed greens for lunch.,2025-01-06
+person18,Drank a glass of sparkling water before dinner.,2025-01-22
+person18,Had a shrimp stir-fry with broccoli and rice for dinner.,2025-01-21
+person18,Had scrambled eggs with toast for breakfast.,2025-01-21
+person19,Had spaghetti with marinara sauce for dinner.,2025-01-06
+person19,Had a cheeseburger with coleslaw for lunch.,2025-01-12
+person19,Had oatmeal with berries for breakfast.,2025-01-27
+person19,Drank a glass of lemonade with lunch.,2025-02-02
+person19,Ate a vegetable pizza for dinner.,2025-01-28
+person19,Drank a matcha latte in the morning.,2025-01-15
+person19,Had roasted chicken with mashed potatoes for lunch.,2025-01-20
+person19,Ate a bagel with smoked salmon for breakfast.,2025-01-31
+person19,Had a bowl of minestrone soup for dinner.,2025-01-16
+person19,Had a chicken parmigiana for dinner.,2025-01-25
+person19,Had a sandwich with turkey and avocado for lunch.,2025-01-31
+person19,Drank a hot cup of mulled wine on a cold evening.,2025-01-14
+person19,"Ate a sandwich with ham, cheese, and mustard for lunch.",2025-01-22
+person19,Had roasted salmon with potatoes and asparagus for dinner.,2025-01-30
+person19,Ate a turkey burger with a side salad for lunch.,2025-01-05
+person19,Drank iced tea at lunch.,2025-02-01
+person19,Had a cheeseburger with fries for lunch.,2025-01-30
+person19,Drank an iced latte in the afternoon.,2025-01-15
+person19,Had a grilled chicken breast with quinoa for lunch.,2025-02-01
+person19,Drank hot chocolate after dinner.,2025-01-20
+person19,Ate an egg salad sandwich for breakfast.,2025-01-14
+person19,Drank a fresh fruit smoothie in the morning.,2025-01-09
+person19,Ate a bacon and egg sandwich for lunch.,2025-01-26
+person19,Ate a veggie wrap for lunch.,2025-01-25
+person19,Ate baked ziti with garlic bread for dinner.,2025-01-06
+person19,Had grilled shrimp with rice for dinner.,2025-01-30
+person19,Had a club sandwich for lunch.,2025-01-20
+person19,Ate a banana and peanut butter smoothie for breakfast.,2025-01-06
+person19,Ate baked salmon with roasted vegetables for dinner.,2025-01-15
+person20,Drank a glass of lemonade with lunch.,2025-01-25
+person20,Drank a protein shake after my workout.,2025-01-13
+person20,Ate a grilled cheese with tomato soup for lunch.,2025-01-26
+person20,Had grilled pork chops with applesauce for dinner.,2025-01-29
+person20,Had a baked potato with sour cream for dinner.,2025-01-10
+person20,Drank a smoothie with mango and coconut milk in the morning.,2025-01-09
+person20,Had a sandwich with turkey and avocado for lunch.,2025-01-08
+person20,Ate a chicken Caesar wrap for lunch.,2025-01-31
+person20,Drank a glass of wine with dinner.,2025-01-10
+person20,Drank a ginger tea in the evening.,2025-01-13
+person20,Ate a vegetable frittata for breakfast.,2025-01-21
+person20,Drank a cold glass of iced tea with lemon.,2025-01-29
+person20,Ate chicken noodle soup for lunch.,2025-01-19
+person20,Drank water throughout the day.,2025-02-03
+person20,Had roasted salmon with potatoes and asparagus for dinner.,2025-01-18
+person20,Drank a glass of sparkling water before dinner.,2025-01-13
+person20,Had a shrimp stir-fry with broccoli and rice for dinner.,2025-01-10
+person20,Had fish tacos for dinner.,2025-01-08
+person20,Had a smoothie bowl with granola for breakfast.,2025-01-18
+person20,Drank iced tea at lunch.,2025-01-29
+person20,Ate a bowl of ramen with pork and egg for dinner.,2025-01-19
+person20,Ate a Caesar salad for dinner.,2025-01-30
+person20,Had a club sandwich for lunch.,2025-02-03
+person20,Drank a hot cup of tea when I woke up.,2025-01-25
+person20,Had lasagna with garlic bread for dinner.,2025-01-17
+person20,Ate a chicken sandwich with fries for lunch.,2025-01-15
+person20,Drank a fresh fruit smoothie in the morning.,2025-01-16
+person21,Drank a ginger tea in the evening.,2025-02-02
+person21,Drank a latte after my morning jog.,2025-01-26
+person21,Had lasagna with garlic bread for dinner.,2025-01-24
+person21,Had a bowl of chili with cornbread for lunch.,2025-01-05
+person21,Ate chicken noodle soup for lunch.,2025-02-02
+person21,Drank a glass of sparkling water before dinner.,2025-01-06
+person21,Ate a vegetable stir-fry with rice for lunch.,2025-01-21
+person21,Ate a vegetable omelette for breakfast.,2025-01-07
+person21,Drank a fresh fruit smoothie in the morning.,2025-01-12
+person21,Ate a tuna salad for lunch.,2025-01-16
+person21,Had a bagel with cream cheese for breakfast.,2025-01-28
+person21,Had roasted chicken with mashed potatoes for lunch.,2025-01-29
+person21,Had a chicken parmigiana for dinner.,2025-01-12
+person21,Had a grilled chicken breast with quinoa for lunch.,2025-02-03
+person21,Ate a cheeseboard with crackers and fruit for dinner.,2025-01-25
+person21,Ate a vegetable frittata for breakfast.,2025-01-24
+person21,Had oatmeal with berries for breakfast.,2025-02-03
+person21,Drank a cold glass of iced tea with lemon.,2025-01-16
+person21,Drank a hot cappuccino at breakfast.,2025-01-30
+person21,Ate a fruit salad with yogurt for breakfast.,2025-01-12
+person21,Ate a burrito bowl for lunch with rice and beans.,2025-01-29
+person21,Ate a grilled cheese with tomato soup for lunch.,2025-02-01
+person21,Had chicken wings with a side of ranch dressing for dinner.,2025-02-01
+person21,Ate a poached egg on avocado toast for breakfast.,2025-01-26
+person21,Ate a caprese salad for lunch.,2025-01-25
+person21,Had grilled chicken and vegetables for dinner.,2025-01-07
+person21,Had a veggie burger with sweet potato fries for lunch.,2025-01-20
+person21,Had French toast with strawberries for breakfast.,2025-01-04
+person21,Drank iced tea at lunch.,2025-01-19
+person21,Ate pancakes with maple syrup for breakfast.,2025-01-24
+person22,Drank a peach iced tea in the afternoon.,2025-01-31
+person22,Drank iced tea at lunch.,2025-01-11
+person22,Drank a chai latte in the morning.,2025-01-20
+person22,Drank a glass of wine with dinner.,2025-01-26
+person22,Ate a poached egg on avocado toast for breakfast.,2025-01-21
+person22,Had roasted salmon with potatoes and asparagus for dinner.,2025-01-13
+person22,Drank an espresso in the afternoon.,2025-01-10
+person22,Ate chicken noodle soup for lunch.,2025-01-28
+person22,Had chicken wings with a side of ranch dressing for dinner.,2025-02-01
+person22,Had a baked potato with sour cream for dinner.,2025-01-24
+person22,Ate a bagel with smoked salmon for breakfast.,2025-01-21
+person22,Had a slice of pizza for dinner.,2025-01-21
+person22,Had lasagna with garlic bread for dinner.,2025-01-23
+person22,Ate a veggie wrap for lunch.,2025-01-17
+person22,Had fish tacos for dinner.,2025-01-05
+person22,Ate a vegetable stir-fry with rice for lunch.,2025-01-13
+person22,Drank a cold glass of iced tea with lemon.,2025-01-19
+person22,Had grilled shrimp with rice for dinner.,2025-02-02
+person22,Had a veggie burger with sweet potato fries for lunch.,2025-01-22
+person22,Ate a fruit salad with yogurt for breakfast.,2025-01-08
+person22,Had a cheeseburger with coleslaw for lunch.,2025-01-17
+person22,Had a chicken parmigiana for dinner.,2025-01-18
+person22,Drank a matcha latte in the morning.,2025-01-29
+person22,Had a ham and cheese croissant for breakfast.,2025-01-18
+person22,Drank a cold brew coffee at noon.,2025-01-27
+person22,Drank a mojito during dinner.,2025-01-04
+person22,Had a grilled chicken breast with quinoa for lunch.,2025-01-27
+person22,Ate a quinoa salad with feta cheese for lunch.,2025-01-10
+person22,Drank a glass of lemonade with lunch.,2025-01-30
+person23,Had French toast with strawberries for breakfast.,2025-01-05
+person23,Ate a chicken salad with mixed greens for lunch.,2025-01-31
+person23,Drank a chai latte in the morning.,2025-02-03
+person23,Had a smoothie bowl with granola for breakfast.,2025-01-18
+person23,Had roasted chicken with mashed potatoes for lunch.,2025-02-03
+person23,Had a ham and cheese croissant for breakfast.,2025-01-21
+person23,Ate a bowl of ramen with pork and egg for dinner.,2025-01-25
+person23,A pasta primavera for dinner.,2025-01-24
+person23,Drank iced tea at lunch.,2025-01-30
+person23,Had a baked potato with sour cream for dinner.,2025-01-08
+person23,Had a cheeseburger with coleslaw for lunch.,2025-01-09
+person23,Had a cheeseburger with fries for lunch.,2025-01-29
+person23,Ate a quinoa salad with feta cheese for lunch.,2025-01-24
+person23,Ate a veggie wrap for lunch.,2025-01-13
+person23,Ate a tuna salad for lunch.,2025-01-31
+person23,Drank water throughout the day.,2025-02-01
+person23,Drank a cappuccino after lunch.,2025-01-20
+person23,Ate chicken noodle soup for lunch.,2025-01-13
+person23,Had a bowl of minestrone soup for dinner.,2025-01-24
+person23,Had scrambled eggs with toast for breakfast.,2025-01-29
+person23,Ate a vegetable pizza for dinner.,2025-01-15
+person23,Had spaghetti with marinara sauce for dinner.,2025-01-28
+person23,Ate a banana and peanut butter smoothie for breakfast.,2025-01-08
+person23,Ate a caprese salad for lunch.,2025-02-03
+person23,Ate a burrito bowl for lunch with rice and beans.,2025-01-11
+person23,Ate a shrimp cocktail as a starter for dinner.,2025-01-22
+person23,Ate a spinach and cheese quiche for breakfast.,2025-01-20
+person23,Had fish tacos for dinner.,2025-01-22
+person23,Had grilled pork chops with applesauce for dinner.,2025-01-21
+person23,Ate a bowl of cereal with milk for breakfast.,2025-01-25
+person23,Ate a vegetable stir-fry with rice for lunch.,2025-01-17
+person23,Drank a mojito during dinner.,2025-01-28
+person23,Had a veggie burger with sweet potato fries for lunch.,2025-01-04
+person24,Had oatmeal with berries for breakfast.,2025-01-06
+person24,Drank a smoothie with mango and coconut milk in the morning.,2025-01-14
+person24,Drank a cold glass of iced tea with lemon.,2025-02-03
+person24,Drank a protein shake after my workout.,2025-01-10
+person24,Ate a vegetable pizza for dinner.,2025-01-29
+person24,Had roasted chicken with mashed potatoes for lunch.,2025-01-20
+person24,Ate a veggie wrap for lunch.,2025-01-19
+person24,Ate a burrito bowl for lunch with rice and beans.,2025-01-15
+person24,Had a veggie burger with sweet potato fries for lunch.,2025-01-15
+person24,Ate a quinoa salad with feta cheese for lunch.,2025-02-01
+person24,Ate a chicken sandwich with fries for lunch.,2025-01-18
+person24,Ate a spinach and cheese quiche for breakfast.,2025-01-27
+person24,Ate a poached egg on avocado toast for breakfast.,2025-01-21
+person24,Drank hot chocolate after dinner.,2025-01-20
+person24,Ate chicken noodle soup for lunch.,2025-02-02
+person24,Ate a tuna salad for lunch.,2025-01-20
+person24,Had a beef stew with bread for dinner.,2025-01-25
+person24,Ate a Caesar salad for dinner.,2025-01-13
+person24,Ate a banana and peanut butter smoothie for breakfast.,2025-01-11
+person24,Had a shrimp stir-fry with broccoli and rice for dinner.,2025-01-27
+person24,Drank a hot cappuccino at breakfast.,2025-01-09
+person24,Ate a chicken Caesar wrap for lunch.,2025-01-27
+person24,Ate a vegetable stir-fry with rice for lunch.,2025-01-11
+person24,Drank a green tea in the afternoon.,2025-01-09
+person24,Had fish tacos for dinner.,2025-01-12
+person24,Had a slice of pizza for dinner.,2025-02-02
+person24,Ate a bagel with smoked salmon for breakfast.,2025-01-24
+person24,Had a slice of chocolate cake for dessert.,2025-01-29
+person24,Ate pancakes with maple syrup for breakfast.,2025-01-11
+person24,Ate a fruit salad with yogurt for breakfast.,2025-01-12
+person24,A pasta primavera for dinner.,2025-01-22
+person24,Ate a yogurt parfait with granola for breakfast.,2025-01-25
+person25,Had chicken wings with a side of ranch dressing for dinner.,2025-01-27
+person25,Drank water throughout the day.,2025-01-19
+person25,Had a veggie burger with sweet potato fries for lunch.,2025-01-12
+person25,Ate a veggie wrap for lunch.,2025-02-01
+person25,Had lasagna with garlic bread for dinner.,2025-01-23
+person25,Ate a bagel with smoked salmon for breakfast.,2025-01-18
+person25,Drank iced tea at lunch.,2025-01-31
+person25,Drank a mojito during dinner.,2025-01-12
+person25,Had a baked potato with sour cream for dinner.,2025-02-02
+person25,Drank a matcha latte in the morning.,2025-01-29
+person25,Drank a hot cappuccino at breakfast.,2025-01-08
+person25,Had grilled pork chops with applesauce for dinner.,2025-01-16
+person25,Ate a chicken sandwich with fries for lunch.,2025-01-12
+person25,Ate a banana and peanut butter smoothie for breakfast.,2025-01-23
+person25,Ate a chicken salad with mixed greens for lunch.,2025-01-13
+person25,"Ate a sandwich with ham, cheese, and mustard for lunch.",2025-02-03
+person25,Had a bowl of chili with cornbread for lunch.,2025-02-02
+person25,Had French toast with strawberries for breakfast.,2025-01-14
+person25,Had a grilled cheese sandwich for lunch.,2025-01-26
+person25,Drank a hot cup of tea when I woke up.,2025-02-02
+person25,Had a cheeseburger with fries for lunch.,2025-01-06
+person25,Ate a vegetable omelette for breakfast.,2025-01-18
+person25,Drank a smoothie with spinach and banana in the morning.,2025-01-25
+person25,Had a smoothie bowl with granola for breakfast.,2025-01-31
+person25,Had a cheeseburger with coleslaw for lunch.,2025-01-09
+person25,Drank an espresso in the afternoon.,2025-02-03
+person25,Drank a mango lassi after dinner.,2025-01-29
+person25,Drank a chai latte in the morning.,2025-02-02
+person25,Had a beef stew with bread for dinner.,2025-01-08
+person25,Ate a cheeseboard with crackers and fruit for dinner.,2025-01-12
+person26,Had a lamb curry with rice for dinner.,2025-01-27
+person26,Ate a caprese salad for lunch.,2025-01-05
+person26,Had a pulled pork sandwich for lunch.,2025-01-12
+person26,Ate an egg salad sandwich for breakfast.,2025-01-15
+person26,Ate a tuna salad for lunch.,2025-01-24
+person26,Ate a turkey burger with a side salad for lunch.,2025-01-13
+person26,Ate a bowl of ramen with pork and egg for dinner.,2025-01-27
+person26,Drank a cranberry juice in the morning.,2025-01-11
+person26,Drank a milkshake after dinner.,2025-01-05
+person26,Ate a bowl of cereal with milk for breakfast.,2025-01-29
+person26,Drank a green tea in the afternoon.,2025-01-26
+person26,Ate pancakes with maple syrup for breakfast.,2025-01-28
+person26,Ate a grilled cheese with tomato soup for lunch.,2025-01-05
+person26,Ate a vegetable omelette for breakfast.,2025-01-13
+person26,Had a smoothie bowl with granola for breakfast.,2025-01-06
+person26,Had a grilled chicken breast with quinoa for lunch.,2025-01-23
+person26,Drank a cold brew coffee at noon.,2025-01-08
+person26,Drank iced tea at lunch.,2025-02-03
+person26,Drank a peach iced tea in the afternoon.,2025-01-12
+person26,Ate grilled vegetables with couscous for lunch.,2025-01-30
+person27,Drank a glass of iced water with lunch.,2025-01-13
+person27,Had French toast with strawberries for breakfast.,2025-01-10
+person27,Ate a vegetable stir-fry with rice for lunch.,2025-01-16
+person27,Drank a glass of lemonade with lunch.,2025-01-25
+person27,Drank iced tea at lunch.,2025-01-07
+person27,Ate a burrito bowl for lunch with rice and beans.,2025-01-11
+person27,Ate a fruit salad with yogurt for breakfast.,2025-01-12
+person27,Drank a peach iced tea in the afternoon.,2025-01-30
+person27,Drank a green tea in the afternoon.,2025-01-29
+person27,Drank a glass of sparkling water before dinner.,2025-01-18
+person27,Drank a hot cup of mulled wine on a cold evening.,2025-02-03
+person27,Ate a banana and peanut butter smoothie for breakfast.,2025-01-20
+person27,"Ate a sandwich with ham, cheese, and mustard for lunch.",2025-01-25
+person27,A pasta primavera for dinner.,2025-01-08
+person27,Had a veggie burger with sweet potato fries for lunch.,2025-01-04
+person27,Ate a vegetable omelette for breakfast.,2025-01-30
+person27,Drank a fresh fruit smoothie in the morning.,2025-01-27
+person27,Had a lamb curry with rice for dinner.,2025-01-19
+person27,Drank a smoothie with mango and coconut milk in the morning.,2025-01-28
+person27,Drank water throughout the day.,2025-01-31
+person27,Drank a smoothie with spinach and banana in the morning.,2025-01-16
+person27,Had grilled pork chops with applesauce for dinner.,2025-01-28
+person27,Had a shrimp stir-fry with broccoli and rice for dinner.,2025-01-25
+person28,Drank a hot cup of mulled wine on a cold evening.,2025-01-20
+person28,Drank a matcha latte in the morning.,2025-01-04
+person28,Had a smoothie bowl with granola for breakfast.,2025-01-27
+person28,Had chicken wings with a side of ranch dressing for dinner.,2025-01-10
+person28,Ate a vegetable omelette for breakfast.,2025-01-06
+person28,Had a shrimp stir-fry with broccoli and rice for dinner.,2025-01-06
+person28,Had a slice of chocolate cake for dessert.,2025-01-28
+person28,Drank a cranberry juice in the morning.,2025-01-10
+person28,Ate grilled vegetables with couscous for lunch.,2025-01-07
+person28,Drank iced tea at lunch.,2025-01-23
+person28,Ate a burrito bowl for lunch with rice and beans.,2025-01-22
+person28,Had grilled shrimp with rice for dinner.,2025-01-28
+person28,Ate a veggie wrap for lunch.,2025-01-17
+person28,Had oatmeal with berries for breakfast.,2025-01-08
+person28,Had roasted salmon with potatoes and asparagus for dinner.,2025-01-11
+person28,Drank a hot cappuccino at breakfast.,2025-01-14
+person28,Drank a glass of lemonade with lunch.,2025-01-28
+person28,Drank a glass of iced water with lunch.,2025-01-11
+person28,Drank a glass of wine with dinner.,2025-01-13
+person28,Drank orange juice alongside my breakfast.,2025-01-19
+person28,Had a bowl of chili with cornbread for lunch.,2025-01-08
+person28,Had a baked potato with sour cream for dinner.,2025-01-08
+person28,Had a beef stew with bread for dinner.,2025-01-28
+person28,"Ate a sandwich with ham, cheese, and mustard for lunch.",2025-01-15
+person28,Ate a vegetable stir-fry with rice for lunch.,2025-01-18
+person28,Had a slice of pizza for dinner.,2025-01-19
+person28,Had French toast with strawberries for breakfast.,2025-02-01
+person28,Drank a smoothie with spinach and banana in the morning.,2025-01-09
+person28,Had a bowl of minestrone soup for dinner.,2025-01-12
+person28,Had spaghetti with marinara sauce for dinner.,2025-01-17
+person28,Had lasagna with garlic bread for dinner.,2025-01-04
+person28,Ate a vegetable frittata for breakfast.,2025-02-03
+person28,Drank a peach iced tea in the afternoon.,2025-01-28
+person29,Drank a cold glass of iced tea with lemon.,2025-01-06
+person29,Had a lamb curry with rice for dinner.,2025-01-19
+person29,Ate baked ziti with garlic bread for dinner.,2025-01-05
+person29,"Ate a sandwich with ham, cheese, and mustard for lunch.",2025-01-29
+person29,Had a smoothie bowl with granola for breakfast.,2025-01-24
+person29,Drank a cappuccino after lunch.,2025-01-10
+person29,Drank a mango lassi after dinner.,2025-01-27
+person29,Had a cheeseburger with fries for lunch.,2025-01-29
+person29,Had scrambled eggs with toast for breakfast.,2025-01-22
+person29,Drank a mojito during dinner.,2025-01-20
+person29,Had a shrimp stir-fry with broccoli and rice for dinner.,2025-01-22
+person29,Had a beef stew with bread for dinner.,2025-01-27
+person29,Drank a milkshake after dinner.,2025-01-23
+person29,Drank a matcha latte in the morning.,2025-01-24
+person29,Had lasagna with garlic bread for dinner.,2025-01-06
+person29,Ate a veggie wrap for lunch.,2025-01-19
+person29,A pasta primavera for dinner.,2025-01-08
+person29,Had a bagel with cream cheese for breakfast.,2025-01-15
+person29,Ate a bagel with smoked salmon for breakfast.,2025-01-23
+person29,Had roasted chicken with mashed potatoes for lunch.,2025-01-28
+person29,Ate a bowl of cereal with milk for breakfast.,2025-01-18
+person29,Had a falafel wrap with hummus for lunch.,2025-02-01
+person29,Ate a Caesar salad for dinner.,2025-01-14
+person29,Ate chicken noodle soup for lunch.,2025-01-12
+person29,Drank orange juice alongside my breakfast.,2025-01-13
+person29,Drank an espresso in the afternoon.,2025-01-15
+person29,Drank a peach iced tea in the afternoon.,2025-02-03
+person29,Ate a shrimp cocktail as a starter for dinner.,2025-01-13
+person30,Drank a mango lassi after dinner.,2025-01-29
+person30,A pasta primavera for dinner.,2025-02-01
+person30,Drank a hot cappuccino at breakfast.,2025-01-08
+person30,Ate a vegetable stir-fry with rice for lunch.,2025-01-04
+person30,Ate a bowl of cereal with milk for breakfast.,2025-01-05
+person30,Drank a mojito during dinner.,2025-01-14
+person30,Drank a glass of iced water with lunch.,2025-01-06
+person30,Ate a chicken Caesar wrap for lunch.,2025-01-24
+person30,Had roasted chicken with mashed potatoes for lunch.,2025-02-01
+person30,Ate an egg salad sandwich for breakfast.,2025-01-30
+person30,Drank a green tea in the afternoon.,2025-01-14
+person30,Drank a cold glass of iced tea with lemon.,2025-01-08
+person30,Had a slice of chocolate cake for dessert.,2025-01-26
+person30,Drank a glass of wine with dinner.,2025-02-02
+person30,Had a chicken parmigiana for dinner.,2025-02-01
+person30,Ate a fruit salad with yogurt for breakfast.,2025-01-04
+person30,Ate a chicken salad with mixed greens for lunch.,2025-01-26
+person30,Had a club sandwich for lunch.,2025-02-03
+person30,Had a lamb curry with rice for dinner.,2025-01-30
+person30,Had a veggie burger with sweet potato fries for lunch.,2025-02-03
+person30,Had avocado toast for breakfast.,2025-01-05
+person30,Drank a matcha latte in the morning.,2025-01-08
+person30,Ate baked ziti with garlic bread for dinner.,2025-01-07
+person30,Had French toast with strawberries for breakfast.,2025-01-05
+person1,Ate a tuna salad for lunch.,2025-01-27
+person1,Drank a mango lassi after dinner.,2025-01-25
+person1,Ate a caprese salad for lunch.,2025-01-09
+person1,Had a lamb curry with rice for dinner.,2025-01-20
+person1,Had a grilled chicken breast with quinoa for lunch.,2025-01-17
+person1,Had French toast with strawberries for breakfast.,2025-01-15
+person1,Drank a ginger tea in the evening.,2025-02-01
+person1,Ate a poached egg on avocado toast for breakfast.,2025-02-01
+person1,Ate a bowl of cereal with milk for breakfast.,2025-01-20
+person1,Ate a turkey and cheese sandwich for lunch.,2025-01-07
+person1,Ate a bowl of ramen with pork and egg for dinner.,2025-01-09
+person1,Had a chicken parmigiana for dinner.,2025-01-14
+person1,Drank water throughout the day.,2025-01-14
+person1,Drank a smoothie with spinach and banana in the morning.,2025-01-30
+person1,Drank a cold brew coffee at noon.,2025-01-04
+person1,Ate a grilled cheese with tomato soup for lunch.,2025-02-01
+person1,Had a bagel with cream cheese for breakfast.,2025-01-15
+person1,Ate a quinoa salad with feta cheese for lunch.,2025-01-08
+person1,Ate a spinach and cheese quiche for breakfast.,2025-01-30
+person1,Had grilled shrimp with rice for dinner.,2025-01-25
+person1,Had a club sandwich for lunch.,2025-01-08
+person1,Had lasagna with garlic bread for dinner.,2025-01-26
+person1,Had grilled pork chops with applesauce for dinner.,2025-01-18
+person1,Ate a Caesar salad for dinner.,2025-01-05
+person1,Ate a fruit salad with yogurt for breakfast.,2025-01-14
+person1,Ate a burrito bowl for lunch with rice and beans.,2025-01-27
+person1,Drank a hot cup of mulled wine on a cold evening.,2025-01-12
+person2,Had grilled shrimp with rice for dinner.,2025-01-12
+person2,Ate a tuna salad for lunch.,2025-01-09
+person2,Drank a cold glass of iced tea with lemon.,2025-01-16
+person2,Had grilled pork chops with applesauce for dinner.,2025-01-20
+person2,Had a veggie burger with sweet potato fries for lunch.,2025-01-12
+person2,Drank orange juice alongside my breakfast.,2025-01-09
+person2,Drank a hot cup of mulled wine on a cold evening.,2025-01-09
+person2,Had a falafel wrap with hummus for lunch.,2025-02-03
+person2,Drank hot chocolate after dinner.,2025-01-27
+person2,Had a grilled chicken breast with quinoa for lunch.,2025-01-07
+person2,Drank a hot cappuccino at breakfast.,2025-01-13
+person2,Ate a turkey burger with a side salad for lunch.,2025-01-10
+person2,Drank a fresh fruit smoothie in the morning.,2025-01-04
+person2,Had scrambled eggs with toast for breakfast.,2025-01-19
+person2,Drank iced tea at lunch.,2025-01-12
+person2,Drank a hot cup of tea when I woke up.,2025-01-10
+person2,Had a ham and cheese croissant for breakfast.,2025-01-14
+person2,Ate a caprese salad for lunch.,2025-01-27
+person2,Drank a ginger tea in the evening.,2025-01-31
+person2,Had a slice of pizza for dinner.,2025-01-28
+person2,Drank a mango lassi after dinner.,2025-01-20
+person2,Drank a matcha latte in the morning.,2025-01-29
+person3,Had a chicken parmigiana for dinner.,2025-01-28
+person3,Drank a protein shake after my workout.,2025-01-23
+person3,Drank a mojito during dinner.,2025-01-20
+person3,Drank a glass of iced water with lunch.,2025-01-13
+person3,Ate a quinoa salad with feta cheese for lunch.,2025-01-29
+person3,Had grilled pork chops with applesauce for dinner.,2025-01-28
+person3,Had a shrimp stir-fry with broccoli and rice for dinner.,2025-02-01
+person3,Drank a hot cappuccino at breakfast.,2025-01-24
+person3,Ate a vegetable stir-fry with rice for lunch.,2025-01-19
+person3,Had a bagel with cream cheese for breakfast.,2025-01-28
+person3,Had grilled shrimp with rice for dinner.,2025-01-24
+person3,Ate a banana and peanut butter smoothie for breakfast.,2025-01-08
+person3,Ate an egg salad sandwich for breakfast.,2025-01-13
+person3,Drank a ginger tea in the evening.,2025-01-17
+person3,Ate a vegetable frittata for breakfast.,2025-01-31
+person3,Had a grilled chicken breast with quinoa for lunch.,2025-01-12
+person3,A pasta primavera for dinner.,2025-01-18
+person3,Ate grilled vegetables with couscous for lunch.,2025-01-20
+person3,Ate a spinach and cheese quiche for breakfast.,2025-02-02
+person3,Ate a burrito bowl for lunch with rice and beans.,2025-01-11
+person3,Drank a glass of wine with dinner.,2025-01-06
+person3,Had scrambled eggs with toast for breakfast.,2025-01-14
+person3,Ate a turkey and cheese sandwich for lunch.,2025-01-25
+person3,Ate a chicken Caesar wrap for lunch.,2025-01-28
+person3,Had a bowl of chili with cornbread for lunch.,2025-01-18
+person3,Ate a grilled cheese with tomato soup for lunch.,2025-02-02
+person3,Drank an espresso in the afternoon.,2025-01-23
+person3,Ate a turkey burger with a side salad for lunch.,2025-01-24
+person3,Had a poached egg on toast for breakfast.,2025-01-07
+person3,Had a grilled cheese sandwich for lunch.,2025-01-13
+person3,Had a slice of chocolate cake for dessert.,2025-01-25
+person4,Ate a vegetable frittata for breakfast.,2025-01-08
+person4,Ate baked ziti with garlic bread for dinner.,2025-01-24
+person4,Had spaghetti with marinara sauce for dinner.,2025-01-04
+person4,Ate a turkey burger with a side salad for lunch.,2025-01-18
+person4,Ate baked salmon with roasted vegetables for dinner.,2025-01-10
+person4,Had a baked potato with sour cream for dinner.,2025-01-13
+person4,Drank orange juice alongside my breakfast.,2025-01-25
+person4,Drank a peach iced tea in the afternoon.,2025-01-25
+person4,Ate a chicken salad with mixed greens for lunch.,2025-01-28
+person4,Had fish tacos for dinner.,2025-01-23
+person4,Had French toast with strawberries for breakfast.,2025-01-22
+person4,Ate a vegetable omelette for breakfast.,2025-01-28
+person4,Ate a bowl of cereal with milk for breakfast.,2025-02-01
+person4,Had a poached egg on toast for breakfast.,2025-01-16
+person4,Had a lamb curry with rice for dinner.,2025-02-01
+person4,Had avocado toast for breakfast.,2025-01-08
+person4,Ate a chicken Caesar wrap for lunch.,2025-01-11
+person4,Had a cheeseburger with coleslaw for lunch.,2025-01-13
+person4,Had a slice of chocolate cake for dessert.,2025-01-19
+person4,Had grilled chicken and vegetables for dinner.,2025-01-13
+person4,Ate a caprese salad for lunch.,2025-01-24
+person4,Drank a fresh fruit smoothie in the morning.,2025-01-09
+person4,Drank a cappuccino after lunch.,2025-01-24
+person4,A pasta primavera for dinner.,2025-01-21
+person4,Drank an iced latte in the afternoon.,2025-01-22
+person4,Had a bowl of minestrone soup for dinner.,2025-01-30
+person4,Had oatmeal with berries for breakfast.,2025-01-26
+person4,Ate a fruit salad with yogurt for breakfast.,2025-01-05
+person4,Had a beef stew with bread for dinner.,2025-01-11
+person4,Had a sandwich with turkey and avocado for lunch.,2025-01-24
+person4,Drank a smoothie with mango and coconut milk in the morning.,2025-01-28
+person4,Drank a protein shake after my workout.,2025-01-18
+person5,Ate a banana and peanut butter smoothie for breakfast.,2025-01-28
+person5,Drank a cold glass of iced tea with lemon.,2025-01-09
+person5,Drank a milkshake after dinner.,2025-02-01
+person5,Ate a chicken salad with mixed greens for lunch.,2025-01-21
+person5,Drank a hot cup of mulled wine on a cold evening.,2025-01-05
+person5,Drank a hot cappuccino at breakfast.,2025-01-23
+person5,Ate a vegetable stir-fry with rice for lunch.,2025-01-20
+person5,Drank a smoothie with spinach and banana in the morning.,2025-01-20
+person5,Ate a vegetable omelette for breakfast.,2025-01-28
+person5,Ate baked salmon with roasted vegetables for dinner.,2025-02-03
+person5,Drank a fresh fruit smoothie in the morning.,2025-01-09
+person5,Had a slice of chocolate cake for dessert.,2025-01-22
+person5,Ate baked ziti with garlic bread for dinner.,2025-01-15
+person5,Had a cheeseburger with coleslaw for lunch.,2025-01-10
+person5,Ate a turkey burger with a side salad for lunch.,2025-01-07
+person5,Had a slice of pizza for dinner.,2025-01-23
+person5,Drank a ginger tea in the evening.,2025-01-28
+person5,Had a falafel wrap with hummus for lunch.,2025-01-28
+person5,Ate a veggie wrap for lunch.,2025-01-20
+person5,Drank a glass of iced water with lunch.,2025-01-21
+person5,Had grilled shrimp with rice for dinner.,2025-02-03
+person6,Ate a caprese salad for lunch.,2025-01-05
+person6,Ate a turkey burger with a side salad for lunch.,2025-01-11
+person6,Had spaghetti with marinara sauce for dinner.,2025-01-05
+person6,A pasta primavera for dinner.,2025-01-12
+person6,Ate a cheeseboard with crackers and fruit for dinner.,2025-01-26
+person6,Drank a cold brew coffee at noon.,2025-01-31
+person6,Had a sandwich with turkey and avocado for lunch.,2025-01-21
+person6,Drank a glass of wine with dinner.,2025-01-10
+person6,Drank orange juice alongside my breakfast.,2025-01-15
+person6,Had a bagel with cream cheese for breakfast.,2025-01-18
+person6,Had a ham and cheese croissant for breakfast.,2025-01-08
+person6,Drank a ginger tea in the evening.,2025-02-02
+person6,Drank a glass of sparkling water before dinner.,2025-02-01
+person6,Had a grilled chicken breast with quinoa for lunch.,2025-01-28
+person6,Had a club sandwich for lunch.,2025-01-13
+person6,Drank iced tea at lunch.,2025-01-12
+person6,Ate a banana and peanut butter smoothie for breakfast.,2025-02-03
+person6,Ate a chicken salad with mixed greens for lunch.,2025-01-08
+person6,Drank a matcha latte in the morning.,2025-01-12
+person6,Drank a smoothie with spinach and banana in the morning.,2025-01-18
+person6,Drank a protein shake after my workout.,2025-01-15
+person6,Had grilled shrimp with rice for dinner.,2025-01-07
+person6,Had a slice of pizza for dinner.,2025-01-17
+person6,Had a slice of chocolate cake for dessert.,2025-01-05
+person6,Had a cheeseburger with coleslaw for lunch.,2025-02-03
+person6,Had a bowl of chili with cornbread for lunch.,2025-01-10
+person6,Ate a grilled cheese with tomato soup for lunch.,2025-01-10
+person6,Had a veggie burger with sweet potato fries for lunch.,2025-01-09
+person6,Drank a mojito during dinner.,2025-01-30
+person6,Had fish tacos for dinner.,2025-01-17
+person6,Had roasted chicken with mashed potatoes for lunch.,2025-01-13
+person6,Ate a poached egg on avocado toast for breakfast.,2025-01-21
