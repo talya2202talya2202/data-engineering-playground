@@ -4,7 +4,7 @@ A small ETL that turns free-text meal logs into per-user daily nutrition
 summaries with sodium and potassium alerts.
 
 This is the **Part 1** implementation of the assignment. The forward-looking
-production architecture is described in [`../ETL_DESIGN.md`](../ETL_DESIGN.md).
+production architecture is described in [`ETL_DESIGN.md`](./ETL_DESIGN.md).
 
 ---
 
@@ -98,7 +98,7 @@ typed shapes without an extra runtime dependency.
 
 ### Function boundaries match the production design
 The five pipeline functions map 1-to-1 to the named ETL steps in
-[`../ETL_DESIGN.md`](../ETL_DESIGN.md), and the dataclass names mirror the
+[`ETL_DESIGN.md`](./ETL_DESIGN.md), and the dataclass names mirror the
 intended warehouse tables (`RawMeal → meals`, `MealItem → meal_items`,
 `DailySummary → fct_daily_nutrition`). The prototype can be lifted into
 an Airflow task or a Kafka consumer by wrapping the same functions —
@@ -115,4 +115,4 @@ not rewriting them.
 | `DAILY_POTASSIUM_TARGET_MG` | `config.py` | 3500 |
 
 In production these would come from the per-user `targets` SCD2 table
-described in `../ETL_DESIGN.md`; here they are global constants.
+described in `ETL_DESIGN.md`; here they are global constants.
