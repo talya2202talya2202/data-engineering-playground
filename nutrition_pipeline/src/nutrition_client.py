@@ -8,7 +8,7 @@ Why a cache?
   so "Had a caprese salad for lunch" and "Ate a caprese salad for lunch"
   both resolve to one entry.
 - We cache the RAW API response (list of dicts) — NOT the parsed
-  NutritionFact objects. If we add/rename fields later we can re-parse
+  MealItem objects. If we add/rename fields later we can re-parse
   without re-hitting the API.
 - Negative results (empty lists, failures) are also cached so unparseable
   meals like "water throughout the day" don't keep retrying.
@@ -23,7 +23,7 @@ from typing import Any
 
 import requests
 
-from .models import NutritionFact
+from .models import MealItem
 
 logger = logging.getLogger(__name__)
 
@@ -90,7 +90,7 @@ class NutritionClient:
         self.cache_path = Path(cache_path)
         self._cache: dict[str, list[dict]] = self._load_cache()
 
-    def get_nutrition(self, normalized_query: str) -> list[NutritionFact]:
+    def get_nutrition(self, normalized_query: str) -> list[MealItem]:
         """Return parsed nutrition facts for a query, using the cache first."""
         if not normalized_query:
             return []
@@ -127,11 +127,11 @@ class NutritionClient:
             logger.error("Invalid JSON for %r: %s", query, e)
             return []
 
-    def _parse_items(self, items: list[dict]) -> list[NutritionFact]:
+    def _parse_items(self, items: list[dict]) -> list[MealItem]:
         # Items are already cleaned by _clean_item before caching, so every
         # numeric field present here is guaranteed to be a float. Missing
         # fields fall back to the dataclass defaults (0.0).
-        facts = []
+        meal_items = []
         for item in items:
             if not isinstance(item, dict):
                 continue
@@ -142,8 +142,8 @@ class NutritionClient:
             for field in _NUMERIC_FIELDS:
                 if field in item:
                     kwargs[field] = item[field]
-            facts.append(NutritionFact(**kwargs))
-        return facts
+            meal_items.append(MealItem(**kwargs))
+        return meal_items
 
     def _load_cache(self) -> dict[str, list[dict]]:
         if not self.cache_path.exists():

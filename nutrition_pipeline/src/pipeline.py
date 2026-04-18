@@ -1,14 +1,19 @@
-"""End-to-end orchestration: CSV → clean → API enrichment → aggregation → alerts.
+"""End-to-end orchestration: CSV → clean → enrich → aggregate → alerts.
 
 Each step is its own pure(-ish) function so it can be unit tested or swapped
-for an Airflow/Dagster task in the productionized pipeline. The function
-boundaries deliberately mirror the ETL stages in the design doc:
+for an Airflow/Dagster task — or wrapped in a streaming consumer loop — in
+the productionized pipeline. The function boundaries deliberately mirror
+the named steps in ETL_DESIGN.md:
 
-    load_csv       -> ingest raw events (raw.meal_events)
-    clean_meals    -> ETL 1: parse + normalize text (stg.meals)
-    enrich_meals   -> ETL 2: API enrichment via cache   (stg.meal_items)
-    aggregate_daily + check_alerts
-                   -> ETL 3: daily roll-up + alerts     (mart.fct_daily_nutrition)
+    Step 1  Ingest             -> load_csv          (writes meal_events)
+    Step 2  Parse + clean      -> clean_meals       (writes meals)
+    Step 3  Enrich via API     -> enrich_meals      (writes meal_items,
+                                                     uses nutrition_cache)
+    Step 4  Aggregate + flag   -> aggregate_daily + check_alerts
+                                                    (writes
+                                                     analytics.fct_daily_nutrition)
+    Step 5  Emit alerts        -> print_alert_report
+                                                    (analytics.fct_alerts in prod)
 
 `run()` is the only entry point callers should need.
 """
@@ -25,7 +30,7 @@ import config
 
 from .alerts import check_alerts, print_alert_report
 from .meal_parser import normalize_meal_text
-from .models import DailySummary, EnrichedMeal, NutritionFact, RawMeal
+from .models import DailySummary, EnrichedMeal, MealItem, RawMeal
 from .nutrition_client import NutritionClient
 
 logger = logging.getLogger(__name__)
@@ -54,13 +59,13 @@ def load_csv(csv_path: Path) -> list[RawMeal]:
 
 
 def clean_meals(raw_meals: list[RawMeal]) -> list[RawMeal]:
-    """Cleaning step: stamp `normalized_text` on every meal.
+    """Step 2 (Parse + clean): stamp `normalized_text` on every meal.
 
-    In the productionized ETL this is the job that writes `stg.meals` —
-    doing it here (rather than inside `enrich_meals`) means the normalized
-    string, which is also the nutrition-API cache key, is computed exactly
-    once upstream and becomes a first-class column every later step can
-    read from.
+    In the productionized ETL this is the job that writes the `meals`
+    table — doing it here (rather than inside `enrich_meals`) means the
+    normalized string, which is also the `nutrition_cache` key, is
+    computed exactly once upstream and becomes a first-class column every
+    later step can read from.
     """
     for rm in raw_meals:
         rm.normalized_text = normalize_meal_text(rm.raw_text)
@@ -69,16 +74,16 @@ def clean_meals(raw_meals: list[RawMeal]) -> list[RawMeal]:
 
 
 def enrich_meals(meals: list[RawMeal], client: NutritionClient) -> list[EnrichedMeal]:
-    """Enrichment step: look up nutrition facts for each cleaned meal.
+    """Step 3 (Enrich via API): look up nutrition facts for each cleaned meal.
 
     Assumes `clean_meals` has already run, i.e. `meal.normalized_text` is
-    set. The client handles cache-first lookup so this loop is cheap when
-    queries repeat.
+    set. The client handles cache-first lookup against `nutrition_cache`
+    so this loop is cheap when queries repeat.
     """
     enriched: list[EnrichedMeal] = []
     for rm in meals:
-        facts = client.get_nutrition(rm.normalized_text) if rm.normalized_text else []
-        enriched.append(EnrichedMeal(raw=rm, nutrition=facts))
+        items = client.get_nutrition(rm.normalized_text) if rm.normalized_text else []
+        enriched.append(EnrichedMeal(raw=rm, meal_items=items))
     logger.info(
         "Enriched %d meals (cache contains %d unique queries)",
         len(enriched),
@@ -88,6 +93,14 @@ def enrich_meals(meals: list[RawMeal], client: NutritionClient) -> list[Enriched
 
 
 def aggregate_daily(enriched_meals: list[EnrichedMeal]) -> list[DailySummary]:
+    """Step 4 (Aggregate + flag — aggregate part).
+
+    Buckets enriched meals by (person, date) and sums every nutrient
+    column. Maps to the `GROUP BY (user_id, meal_date)` that builds
+    `analytics.fct_daily_nutrition` in production. The "+ flag" half of
+    Step 4 lives in `alerts.check_alerts`, which sets the alert columns
+    on each summary.
+    """
     buckets: dict[tuple[str, date], list[EnrichedMeal]] = defaultdict(list)
     for em in enriched_meals:
         buckets[(em.raw.person, em.raw.date)].append(em)
@@ -96,15 +109,15 @@ def aggregate_daily(enriched_meals: list[EnrichedMeal]) -> list[DailySummary]:
     for (person, day), meals in buckets.items():
         summary = DailySummary(person=person, date=day, meal_count=len(meals))
         for em in meals:
-            for fact in em.nutrition:
-                summary.total_sodium_mg += fact.sodium_mg
-                summary.total_potassium_mg += fact.potassium_mg
-                summary.total_carbohydrates_total_g += fact.carbohydrates_total_g
-                summary.total_fiber_g += fact.fiber_g
-                summary.total_sugar_g += fact.sugar_g
-                summary.total_fat_total_g += fact.fat_total_g
-                summary.total_fat_saturated_g += fact.fat_saturated_g
-                summary.total_cholesterol_mg += fact.cholesterol_mg
+            for item in em.meal_items:
+                summary.total_sodium_mg += item.sodium_mg
+                summary.total_potassium_mg += item.potassium_mg
+                summary.total_carbohydrates_total_g += item.carbohydrates_total_g
+                summary.total_fiber_g += item.fiber_g
+                summary.total_sugar_g += item.sugar_g
+                summary.total_fat_total_g += item.fat_total_g
+                summary.total_fat_saturated_g += item.fat_saturated_g
+                summary.total_cholesterol_mg += item.cholesterol_mg
         summaries.append(summary)
 
     logger.info("Aggregated into %d daily summaries", len(summaries))
@@ -188,6 +201,6 @@ __all__ = [
     "run",
     "DailySummary",
     "EnrichedMeal",
-    "NutritionFact",
+    "MealItem",
     "RawMeal",
 ]

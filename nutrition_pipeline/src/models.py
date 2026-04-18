@@ -2,8 +2,14 @@
 
 Plain dataclasses are used instead of Pydantic to keep the dependency surface
 minimal (assignment constraint) while still giving us typed, explicit shapes
-that map cleanly to rows in the eventual warehouse tables described in the
-ETL design (see README / ETL doc).
+that map cleanly to rows in the warehouse tables described in ETL_DESIGN.md.
+
+The class-to-table mapping (see ETL_DESIGN.md for the full schema):
+
+    RawMeal      -> meals                       (after parse + normalization)
+    MealItem     -> meal_items                  (one row per food item)
+    EnrichedMeal -> in-memory join of the two   (not a persisted table)
+    DailySummary -> analytics.fct_daily_nutrition
 """
 
 from dataclasses import dataclass, field
@@ -14,11 +20,12 @@ from datetime import date
 class RawMeal:
     """One row of user input plus any cleaning-stage derived fields.
 
-    Maps to a row of `stg.meals` in the productionized ETL (see the ETL
-    design doc): `raw_text` is exactly what the user sent, and
-    `normalized_text` is populated by the cleaning step (pipeline.clean_meals)
-    so every downstream consumer — enrichment, aggregation, debugging —
-    sees the same stable, canonical query string without re-deriving it.
+    Maps to a row of the `meals` table. `raw_text` is exactly what the
+    user sent; `normalized_text` is populated by the parse + clean step
+    (pipeline.clean_meals) so every downstream consumer — enrichment,
+    aggregation, debugging — sees the same canonical query string
+    without re-deriving it. `normalized_text` is also the cache key used
+    by the enrich step against `nutrition_cache`.
     """
 
     person: str
@@ -28,14 +35,14 @@ class RawMeal:
 
 
 @dataclass
-class NutritionFact:
+class MealItem:
     """A single food item returned by the nutrition API.
 
-    Maps to a row of `stg.meal_items` in the productionized ETL. The API
-    may return multiple items per query (e.g. "ham and cheese" → ham item
-    + cheese item), so an EnrichedMeal holds a *list* of these. All numeric
-    fields default to 0.0 so summing is always safe when a field is missing
-    from the API response.
+    Maps to a row of the `meal_items` table. The API may return multiple
+    items per query (e.g. "ham and cheese" → ham item + cheese item),
+    so an EnrichedMeal holds a *list* of these. All numeric fields default
+    to 0.0 so summing is always safe when a field is missing from the API
+    response.
     """
 
     food_name: str = ""
@@ -54,22 +61,24 @@ class NutritionFact:
 class EnrichedMeal:
     """A RawMeal joined with its parsed API response.
 
-    In production this is a logical join of `stg.meals` and `stg.meal_items`,
+    In production this is the logical join of `meals` and `meal_items`,
     not a persisted table — it only exists as an in-memory step before
     daily aggregation. `raw.normalized_text` is the cache key that was
     used for enrichment; we don't duplicate it on this class.
     """
 
     raw: RawMeal
-    nutrition: list[NutritionFact] = field(default_factory=list)
+    meal_items: list[MealItem] = field(default_factory=list)
 
 
 @dataclass
 class DailySummary:
     """Per-(person, date) nutrition roll-up with alert flags.
 
-    Maps to `mart.fct_daily_nutrition` in the productionized ETL — one row
-    per (user, local_date) with nutrient totals and per-rule alert flags.
+    Maps to `analytics.fct_daily_nutrition` — one row per (user, local_date)
+    with nutrient totals and per-rule alert flags. In production this row
+    also carries `is_final` and an extensible `alerts_json` for future
+    rules (see ETL_DESIGN.md).
     """
 
     person: str

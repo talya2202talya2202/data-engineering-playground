@@ -13,8 +13,8 @@ __pycache__/
 .env.*
 !.env.example
 
-xzcoolio_nutrition/cache/*.json
-xzcoolio_nutrition/outputs/*.csv
+nutrition_pipeline/cache/*.json
+nutrition_pipeline/outputs/*.csv
 
 .DS_Store
 .idea/

@@ -1,10 +1,22 @@
 """Alert rules and human-readable reporting.
 
-Alert logic is isolated from aggregation so new rules (e.g. added-sugar cap,
-saturated-fat cap, per-user personalized targets) can be added without
-touching the pipeline. In the future `check_alerts` would take a per-user
-`NutritionTarget` object instead of the global constants — the function
-signature is already set up for that evolution.
+In the design (ETL_DESIGN.md) this module covers:
+
+    Step 4 (flag part)  -> check_alerts        (sets sodium_alert /
+                                                 potassium_alert columns
+                                                 that land in
+                                                 analytics.fct_daily_nutrition)
+    Step 5 (Emit alerts)-> print_alert_report  (the prototype's stand-in
+                                                 for the production alert
+                                                 dispatcher that writes
+                                                 analytics.fct_alerts)
+
+Alert logic is isolated from aggregation so new rules (e.g. added-sugar
+cap, saturated-fat cap, per-user personalized targets) can be added
+without touching the pipeline. In the future `check_alerts` would take
+a per-user `NutritionTarget` object (sourced from the SCD2 `targets`
+table) instead of the global constants — the function signature is
+already set up for that evolution.
 """
 
 from __future__ import annotations

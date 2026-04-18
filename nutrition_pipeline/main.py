@@ -1,4 +1,4 @@
-"""Entry point for the xzcoolio_nutrition pipeline.
+"""Entry point for the nutrition_pipeline.
 
 Usage:
     python main.py
