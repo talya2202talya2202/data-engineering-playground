@@ -102,5 +102,5 @@ Scheduled jobs that read and write the same Iceberg tables:
 3. **Per-user targets via SCD2.** Personalization without losing history; historical days are evaluated against the targets that were valid at the time.
 4. **Extensible alerting.** Common rules get dedicated columns on `fct_daily_nutrition`; new rules go into `alerts_json` so the schema does not change every time the product team adds a metric.
 5. **Idempotency throughout.** Natural keys (`event_id`, `meal_id`, `(user_id, date)`) and `MERGE` writes mean any step can be safely re-run on any window — and the streaming layer scales horizontally (Kafka partitions, parallel Spark/Flink workers) without sacrificing correctness.
-6. **PII isolation.** Raw user text lives only in raw and staging (access-restricted); analytics holds aggregates only. GDPR delete-by-user via soft-delete on the partition key.
+6. **Event-based monitoring** across the pipeline. We emit structured events for key operations (e.g., S3 writes, API calls, and external resource interactions) to enable observability, performance tracking, and failure detection. This supports efficient monitoring and continuous optimization across both streaming and batch layers.
 
